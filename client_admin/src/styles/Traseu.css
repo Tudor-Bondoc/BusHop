@@ -1,19 +1,22 @@
+/* Traseu.css nou*/
+
 .traseu--container {
-    background-color: #f9f9f9; /* Un fundal gri deschis */
-    border: 1px solid #e0e0e0; /* O margine subțire */
-    border-radius: 8px; /* Un colț rotunjit */
-    padding: 20px; /* Spatiere interioara pentru elemente */
-    margin: 20px 0; /* Spatiere exterioara pentru a separa de alte componente */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* O umbra ușoară pentru efect de adâncime */
-    transition: transform 0.3s ease-in-out; /* O tranziție lină pentru animații */
+    width: 300px; /* Lățimea dorită pentru box */
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto; /* Centrare pe orizontală */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
 .traseu--container:hover {
-    transform: scale(1.02); /* Un efect de scalare la survol */
+    transform: scale(1.02);
 }
 
 .oras {
-    font-size: 1.2rem; /* Dimensiunea textului */
-    margin: 15px 0; /* Spatiere între fiecare oraș */
-    color: #333; /* Culoare text */
+    font-size: 1.2rem;
+    margin: 15px 0;
+    color: #333;
 }
