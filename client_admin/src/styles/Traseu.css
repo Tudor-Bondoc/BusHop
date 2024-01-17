@@ -1,22 +1,33 @@
 /* Traseu.css nou*/
 
 .traseu--container {
-    width: 300px; /* Lățimea dorită pentru box */
+    width: 350px;
+    text-align: center;
     background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #1a1d61;
     border-radius: 8px;
     padding: 20px;
-    margin: 20px auto; /* Centrare pe orizontală */
+    margin: 20px auto;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
 }
 
 .traseu--container:hover {
     transform: scale(1.02);
+    cursor: pointer;
 }
 
 .oras {
-    font-size: 1.2rem;
+    font-size: 18px;
     margin: 15px 0;
     color: #333;
+    font-weight: 600;
 }
+
+.oras:first-child, .oras:last-child {
+    color: #1a1d61;
+    font-weight: 800;
+}
+
+
+
