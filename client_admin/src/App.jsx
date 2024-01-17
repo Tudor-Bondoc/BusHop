@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios"
 import Traseu from "./components/Traseu";
+import Header from "./components/Header";
 
 export default function App() {
 
@@ -32,6 +33,7 @@ export default function App() {
 
   return(
     <div>
+      <Header />
       {lista}
     </div>
   )

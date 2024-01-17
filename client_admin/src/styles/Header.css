@@ -1,0 +1,19 @@
+.header--container {
+    display: flex; /* Utilizează flexbox */
+    justify-content: space-between; /* Plasează elementele la capetele containerului */
+    align-items: center; /* Aliniază vertical elementele în centru */
+    padding: 10px 20px; /* Spațiere între conținut și margine */
+    background-color: #1a1d61;
+}
+
+.bushop {
+    color: white;
+    font-size: 30px; /* Dimensiune text */
+    margin: 0; /* Elimină marginul implicit al h1 */
+    font-weight: 900;
+}
+
+.headr--logo {
+    width: 100px; /* Lățimea logo-ului */
+    height: auto; /* Menține proporțiile */
+}
