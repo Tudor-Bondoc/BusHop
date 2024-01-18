@@ -10,6 +10,10 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Trasee />} />
+          <Route path="/curse" element={<Trasee />} />
+          <Route path="/trasee" element={<Trasee />} />
+          <Route path="/autocare" element={<Trasee />} />
+          <Route path="/rezervari" element={<Trasee />} />
         </Routes>
       </Router>
     </div>
