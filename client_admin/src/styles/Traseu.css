@@ -29,5 +29,18 @@
     font-weight: 800;
 }
 
+.add-button {
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    height: 60px;
+    width: auto;
+}
+
+.add-button:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
 
 

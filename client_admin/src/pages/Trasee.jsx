@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios"
+import { Link } from "react-router-dom"
 import Traseu from "../components/Traseu";
+import Add from "../../images/add.png"
 
 export default function Trasee(){
 
@@ -31,6 +33,9 @@ export default function Trasee(){
     return(
         <div>
             {lista}
+            <Link to="/adaugare_traseu">
+                <img src={Add} className="add-button" />
+            </Link>
         </div>
     )
 }

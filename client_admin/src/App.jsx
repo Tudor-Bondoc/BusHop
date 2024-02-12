@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import Header from "./components/Header";
 import Trasee from "./pages/Trasee";
+import AddTraseu from "./pages/AddTraseu"
 
 export default function App() {
   return(
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/trasee" element={<Trasee />} />
           <Route path="/autocare" element={<Trasee />} />
           <Route path="/rezervari" element={<Trasee />} />
+          <Route path="/adaugare_traseu" element={<AddTraseu />} />
         </Routes>
       </Router>
     </div>

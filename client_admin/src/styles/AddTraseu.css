@@ -1,0 +1,42 @@
+/* Form.css (sau numele fișierului CSS pe care îl folosiți) */
+
+.form--container {
+    background-color: #fff; /* Culoarea de fundal albă pentru container */
+    padding: 20px; /* Spațiere între conținut și margine */
+    border-radius: 8px; /* Rotunjirea colțurilor */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* O umbra ușoară pentru efect de adâncime */
+    margin: 40px auto;
+    width: 500px;
+}
+
+label {
+    color: #1a1d61; /* Culoarea textului pentru etichete */
+    margin-bottom: 5px; /* Spațierea între etichete și câmpuri */
+    display: block; /* Face ca etichetele să fie afișate pe linii separate */
+}
+
+input {
+    width: 100%; /* Lățime completă pentru câmpurile de input */
+    padding: 8px; /* Spațiere între text și margine */
+    margin-bottom: 15px; /* Spațierea între câmpuri */
+    border: 1px solid #1a1d61; /* Bordură de culoare */
+    border-radius: 5px; /* Rotunjirea colțurilor pentru câmpurile de input */
+    background-color: #fff; /* Fond alb pentru câmpuri */
+    color: #1a1d61; /* Culoarea textului pentru câmpuri */
+}
+
+button[type="submit"] {
+    background-color: #1a1d61; /* Culoarea de fundal pentru buton */
+    color: #fff; /* Culoarea textului pentru buton */
+    padding: 10px 20px; /* Spațiere între text și margine */
+    border: none; /* Fără bordură */
+    border-radius: 5px; /* Rotunjirea colțurilor pentru buton */
+    cursor: pointer; /* Indicator de cursor */
+}
+
+button[type="submit"]:hover {
+    background-color: #0d0f30; /* Culoarea de fundal a butonului la survol */
+}
+
+
+
