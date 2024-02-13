@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import Header from "./components/Header";
 import Trasee from "./pages/Trasee";
+import Home from "./pages/Home";
 import Autocare from "./pages/Autocare";
 import AddTraseu from "./pages/AddTraseu"
 import AddAutocar from "./pages/AddAutocar";
@@ -12,7 +13,7 @@ export default function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Trasee />} />
+          <Route path="/" element={<Home />} />
           <Route path="/curse" element={<Trasee />} />
           <Route path="/trasee" element={<Trasee />} />
           <Route path="/autocare" element={<Autocare />} />

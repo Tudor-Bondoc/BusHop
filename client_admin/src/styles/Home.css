@@ -1,0 +1,35 @@
+/* Home.css (sau numele fișierului CSS pe care îl folosiți) */
+
+@keyframes slideAnimation {
+    0% {
+        transform: translateX(0); /* Inițial, fără deplasare */
+    }
+    50% {
+        transform: translateX(100px); /* Deplasare la dreapta */
+    }
+    100% {
+        transform: translateX(0); /* Revenire la poziția inițială */
+    }
+}
+
+.home--container {
+    background-image: url('../../images/home.jpg'); /* Înlocuiți 'calea/catre/imagine.jpg' cu calea către imaginea dvs. de fundal */
+    background-size: cover; /* Face ca imaginea să se mărească sau să se micșoreze pentru a umple întregul container */
+    background-position: center; /* Așează imaginea în centrul containerului */
+    background-repeat: no-repeat; /* Asigură că imaginea nu se repetă */
+    height: 87.5vh; /* Înălțimea containerului să fie 100% din înălțimea vizibilă a ferestrei */
+    display: flex; /* Utilizează flexbox pentru a centra conținutul */
+    justify-content: center; /* Aliniază conținutul pe axa orizontală */
+    align-items: center; /* Aliniază conținutul pe axa verticală */
+    text-align: center; /* Aliniază textul în centrul containerului */
+}
+
+.home--container h1 {
+    color: #fff; /* Culoarea textului */
+    font-size: 3rem; /* Dimensiunea textului */
+    position: absolute;
+    left: 20px;
+    top: 150px;
+    font-style: oblique;
+    animation: slideAnimation 5s infinite;
+}

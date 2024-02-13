@@ -4,6 +4,7 @@
     align-items: center; /* Aliniază vertical elementele în centru */
     padding: 10px 20px; /* Spațiere între conținut și margine */
     background-color: #1a1d61;
+    height: 12.5vh;
 }
 
 .bushop {
@@ -36,8 +37,12 @@
     text-decoration: none;
     font-size: 17px;
     font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 5%;
 }
 
 .nav--link:hover {
     transform: scale(1.4);
+    color: #1a1d61;
+    background-color: white;
 }
