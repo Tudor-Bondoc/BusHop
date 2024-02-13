@@ -9,7 +9,10 @@ const db = require("./models")
 
 // Routers
 const traseeRouter = require('./routes/Trasee')
+const autocareRouter = require('./routes/Autocare')
+
 app.use("/trasee", traseeRouter)
+app.use("/autocare", autocareRouter)
 
 db.sequelize.sync().then(()=>{
     app.listen(3002, () => {

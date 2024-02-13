@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import Header from "./components/Header";
 import Trasee from "./pages/Trasee";
+import Autocare from "./pages/Autocare";
 import AddTraseu from "./pages/AddTraseu"
+import AddAutocar from "./pages/AddAutocar";
 
 export default function App() {
   return(
@@ -13,9 +15,10 @@ export default function App() {
           <Route path="/" element={<Trasee />} />
           <Route path="/curse" element={<Trasee />} />
           <Route path="/trasee" element={<Trasee />} />
-          <Route path="/autocare" element={<Trasee />} />
+          <Route path="/autocare" element={<Autocare />} />
           <Route path="/rezervari" element={<Trasee />} />
           <Route path="/adaugare_traseu" element={<AddTraseu />} />
+          <Route path="/adaugare_autocar" element={<AddAutocar />} />
         </Routes>
       </Router>
     </div>

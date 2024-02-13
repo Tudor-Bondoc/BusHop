@@ -1,0 +1,37 @@
+/* Autocar.css */
+
+.autocar--container {
+    display: flex; /* Utilizează flexbox */
+    justify-content: center; /* Aliniază containerul pe axa orizontală */
+    border: 1px solid #1a1d61;
+    align-items: center;
+    border-radius: 8px; /* Rotunjirea colțurilor */
+    padding: 20px; /* Spațiere între conținut și margine */
+    width: 600px; /* Lățime maximă pentru container */
+    margin: 20px auto; /* Centrare pe pagina */
+}
+
+.left--side {
+    border-right: 2px solid #1a1d61;
+}
+
+.left--side,
+.right--side {
+    /*flex: 1;*/ /* Distribuie spațiul disponibil în mod egal între cele două părți */
+    padding: 10px; /* Spațiere între conținut și margine pentru fiecare parte */
+}
+
+.marca {
+    font-weight: bold; /* Text mai gros pentru marca */
+    color: #1a1d61; /* Culoare text pentru marca */
+}
+
+.numar--inmatriculare {
+    color: black; /* Culoare text pentru numărul de înmatriculare */
+}
+
+.numar--locuri {
+    color: #1a1d61; /* Culoare text pentru numărul de locuri */
+    margin-left: auto;
+    margin-right: auto;
+}
