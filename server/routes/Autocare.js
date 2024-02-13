@@ -9,6 +9,7 @@ router.get("/", async (req, res) => {
 })
 
 //Adauga un autocar
+//Test
 router.post("/", async (req, res) => {
 
     const autocar = req.body
