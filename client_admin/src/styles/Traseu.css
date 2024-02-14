@@ -25,7 +25,14 @@
     font-weight: 600;
 }
 
-.oras:first-child, .oras:last-child {
+.oras:first-child {
+    color: #1a1d61;
+    font-weight: 800;
+}
+
+.oras--ultim {
+    font-size: 18px;
+    margin: 15px 0;
     color: #1a1d61;
     font-weight: 800;
 }

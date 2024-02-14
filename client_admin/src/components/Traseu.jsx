@@ -9,7 +9,8 @@ export default function Traseu(props){
     const handleDeleteTraseu = async (id) => {
 
         try {
-            await axios.delete(`http://localhost:3002/trasee/${id}`); 
+            await axios.delete(`http://localhost:3002/trasee/${id}`);
+            window.location.reload()
         } catch (error) {
             console.error("Eroare la ștergerea traseului cu id-ul :", id, error);
         }
@@ -21,7 +22,7 @@ export default function Traseu(props){
             {props.oras_1 && <h1 className="oras">Prima oprire: {props.oras_1}</h1>}
             {props.oras_2 && <h1 className="oras">A doua oprire: {props.oras_2}</h1>}
             {props.oras_3 && <h1 className="oras">A treia oprire: {props.oras_3}</h1>}
-            <h1 className="oras">Oras destinatie: {props.oras_sosire}</h1>
+            <h1 className="oras--ultim">Oras destinatie: {props.oras_sosire}</h1>
             <img src={Trash} className="trash" onClick={() => handleDeleteTraseu(props.id)} />
         </div>
     )
