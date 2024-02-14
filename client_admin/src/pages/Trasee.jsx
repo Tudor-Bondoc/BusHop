@@ -12,6 +12,7 @@ export default function Trasee(){
     const lista = listaTrasee.map((value, key) => {
     return(
       <Traseu
+        id = {value.id}
         key = {value.id}
         oras_pornire = {value.oras_pornire}
         oras_1 = {value.oras_1}
