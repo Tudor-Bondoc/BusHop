@@ -1,7 +1,8 @@
 /* Traseu.css nou*/
 
 .traseu--container {
-    width: 350px;
+    position: relative;
+    width: 400px;
     text-align: center;
     background-color: #f9f9f9;
     border: 1px solid #1a1d61;
@@ -42,5 +43,21 @@
     cursor: pointer;
 }
 
+.trash {
+    display: none;
+    position: absolute;
+    height: 60px;
+    width: auto;
+    right: 10px;
+    top: 10px;
+}
 
+.trash:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.traseu--container:hover .trash {
+    display: block;
+}
 
