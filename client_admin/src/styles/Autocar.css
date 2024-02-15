@@ -9,6 +9,12 @@
     padding: 20px; /* Spațiere între conținut și margine */
     width: 600px; /* Lățime maximă pentru container */
     margin: 20px auto; /* Centrare pe pagina */
+    position: relative;
+}
+
+.autocar--container:hover {
+    transform: scale(1.02);
+    cursor: pointer;
 }
 
 .left--side {
@@ -34,4 +40,22 @@
     color: #1a1d61; /* Culoare text pentru numărul de locuri */
     margin-left: auto;
     margin-right: auto;
+}
+
+.trash {
+    display: none;
+    position: absolute;
+    height: 60px;
+    width: auto;
+    right: 10px;
+    top: 10px;
+}
+
+.trash:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.autocar--container:hover .trash {
+    display: block;
 }

@@ -12,6 +12,7 @@ export default function Autocare(){
     const lista = listaAutocare.map((value, key) => {
     return(
       <Autocar
+        id = {value.id}
         key = {value.id}
         numar_inmatriculare = {value.numar_inmatriculare}
         numar_locuri = {value.numar_locuri}

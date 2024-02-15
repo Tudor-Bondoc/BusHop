@@ -20,11 +20,14 @@ export default function AddAutocar() {
 
     let navigate = useNavigate()
 
-    function onSubmitAutocar(data) {
-        axios.post("http://localhost:3002/autocare", data).then((response)=> {
-            console.log("IT WORKED")
-        })
-        navigate("/autocare")
+    const onSubmitAutocar = async(data) => {
+    
+        try {
+            await axios.post("http://localhost:3002/autocare", data)
+            navigate("/autocare")
+        } catch(error){
+            console.error("Eroare la adaugarea autocarului: ", error);
+        }
     }
 
     return (
