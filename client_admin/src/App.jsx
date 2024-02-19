@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Autocare from "./pages/Autocare";
 import AddTraseu from "./pages/AddTraseu"
 import AddAutocar from "./pages/AddAutocar";
+import AddCursa from "./pages/AddCursa";
 
 export default function App() {
   return(
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/rezervari" element={<Trasee />} />
           <Route path="/adaugare_traseu" element={<AddTraseu />} />
           <Route path="/adaugare_autocar" element={<AddAutocar />} />
+          <Route path="/adaugare_cursa" element={<AddCursa />} />
         </Routes>
       </Router>
     </div>

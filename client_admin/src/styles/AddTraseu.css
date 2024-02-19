@@ -13,6 +13,7 @@ label {
     color: #1a1d61; /* Culoarea textului pentru etichete */
     margin-bottom: 5px; /* Spațierea între etichete și câmpuri */
     display: block; /* Face ca etichetele să fie afișate pe linii separate */
+    margin-top: 10px;
 }
 
 input {
@@ -32,10 +33,27 @@ button[type="submit"] {
     border: none; /* Fără bordură */
     border-radius: 5px; /* Rotunjirea colțurilor pentru buton */
     cursor: pointer; /* Indicator de cursor */
+    margin-top: 10px;
+    display: block;
+    position: relative;
+    margin: 10px auto;
 }
 
 button[type="submit"]:hover {
     background-color: #0d0f30; /* Culoarea de fundal a butonului la survol */
+}
+
+/* Stilizare pentru elementele option */
+option {
+    display: block;
+    width: 100%; /* Lățime completă pentru câmpurile de input */
+    margin-bottom: 5px; /* Spațierea între câmpuri */
+    border: 1px solid #1a1d61; /* Bordură de culoare */
+    border-radius: 5px; /* Rotunjirea colțurilor pentru câmpurile de input */
+    background-color: #fff; /* Fond alb pentru câmpuri */
+    font-size: 16px; /* Dimensiunea fontului */
+    color: #333; /* Culoarea textului */
+    padding: 8px 12px; /* Spațierea interioară */
 }
 
 
