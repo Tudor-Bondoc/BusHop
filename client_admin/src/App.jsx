@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Trasee from "./pages/Trasee";
 import Home from "./pages/Home";
 import Autocare from "./pages/Autocare";
+import Curse from "./pages/Curse";
 import AddTraseu from "./pages/AddTraseu"
 import AddAutocar from "./pages/AddAutocar";
 import AddCursa from "./pages/AddCursa";
@@ -15,7 +16,7 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/curse" element={<Trasee />} />
+          <Route path="/curse" element={<Curse />} />
           <Route path="/trasee" element={<Trasee />} />
           <Route path="/autocare" element={<Autocare />} />
           <Route path="/rezervari" element={<Trasee />} />

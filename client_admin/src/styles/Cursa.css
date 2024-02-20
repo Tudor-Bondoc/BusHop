@@ -1,0 +1,41 @@
+/* Stilizare pentru containerul cursa */
+.cursa--container {
+    background-color: #f0f0f0; /* Culoare de fundal */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 8px; /* Bordura rotunjită */
+    padding: 16px; /* Spațierea interioară */
+    position: relative;;
+    margin: 16px auto;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Stilizare pentru titlul traseului */
+  .cursa--traseu {
+    color: #1a1d61; /* Culoare text */
+    font-size: 18px; /* Dimensiune font */
+    margin-bottom: 8px; /* Marginea de jos */
+  }
+  
+  /* Stilizare pentru titlul autocarului */
+  .cursa--autocar {
+    color: #1a1d61; /* Culoare text */
+    font-size: 16px; /* Dimensiune font */
+    margin-bottom: 8px; /* Marginea de jos */
+  }
+  
+  /* Stilizare pentru status */
+  .cursa--status {
+    color: #666; /* Culoare text */
+    font-size: 14px; /* Dimensiune font */
+    margin-bottom: 4px; /* Marginea de jos */
+  }
+  
+  /* Stilizare pentru data de plecare, ora de plecare și ora de sosire */
+  .cursa--ziplecare {
+    color: #666; /* Culoare text */
+    font-size: 14px; /* Dimensiune font */
+    margin-bottom: 4px; /* Marginea de jos */
+  }
+  

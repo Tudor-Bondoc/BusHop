@@ -9,7 +9,7 @@ export default function AddCursa() {
     const [listaTrasee, setListaTrasee] = React.useState([])
     const [listaAutocare, setListaAutocare] = React.useState([])
 
-    //Request catre API pentru lista de trasee
+    //Request catre API pentru lista de trasee si autocare
     React.useEffect(()=> {
         axios.get("http://localhost:3002/trasee").then((response)=> {
             setListaTrasee(response.data)
@@ -19,10 +19,22 @@ export default function AddCursa() {
         })
     }, [])
 
-    function handleSubmit(data) {
-        axios.post("http://localhost:3002/curse", data).then((response)=> {
+    let navigate = useNavigate()
+
+    const handleSubmit = async(data) => {
+
+        const dataActualizata = { ...data, status: "neinitiata "}
+
+        try {
+            await axios.post("http://localhost:3002/curse", dataActualizata)
+            navigate("/curse")
+        } catch(error){
+            console.error("Eroare la adaugarea cursei: ", error);
+        }
+
+        /*axios.post("http://localhost:3002/curse", dataActualizata).then((response)=> {
             console.log("IT WORKED")
-        })
+        })*/
     }
 
     return (
@@ -32,8 +44,8 @@ export default function AddCursa() {
                     zi_plecare: "",
                     ora_plecare: "",
                     ora_sosire: "",
-                    status: "",
-                    TraseuID: 1, 
+                    TraseuID: 1,
+                    AutocarID: 1 
                   }}
                   onSubmit={handleSubmit}
             >
@@ -46,9 +58,6 @@ export default function AddCursa() {
 
                     <label htmlFor="ora_sosire">Ora sosire</label>
                     <Field type="time" id="ora_sosire" name="ora_sosire" />
-
-                    <label htmlFor="status">Status</label>
-                    <Field type="text" id="status" name="status" />
 
                     <label htmlFor="TraseuID">Traseu</label>
                     <Field as="select" id="TraseuID" name="TraseuID">
@@ -69,7 +78,7 @@ export default function AddCursa() {
                     </Field>
 
                     <button type="submit">
-                        Adaugă Cursă
+                        Adauga Cursa
                     </button>
             </Form>
             </Formik>
