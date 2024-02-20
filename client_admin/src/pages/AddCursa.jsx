@@ -31,10 +31,6 @@ export default function AddCursa() {
         } catch(error){
             console.error("Eroare la adaugarea cursei: ", error);
         }
-
-        /*axios.post("http://localhost:3002/curse", dataActualizata).then((response)=> {
-            console.log("IT WORKED")
-        })*/
     }
 
     return (
