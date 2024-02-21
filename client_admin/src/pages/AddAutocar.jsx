@@ -31,7 +31,7 @@ export default function AddAutocar() {
     }
 
     return (
-        <div className="form--container">
+        <div className="form--container--default">
             <Formik
                 initialValues={initialValues}
                 onSubmit={onSubmitAutocar}

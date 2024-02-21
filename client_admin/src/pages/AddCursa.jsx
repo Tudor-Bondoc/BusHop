@@ -34,7 +34,7 @@ export default function AddCursa() {
     }
 
     return (
-        <div className="form--container">
+        <div className="form--container--default">
             <Formik
                 initialValues={{
                     zi_plecare: "",

@@ -1,0 +1,17 @@
+.new--trasee--container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.lista--container {
+    margin-top: 20px;
+    border-left: 5px double #1a1d61;
+    padding-left: 140px;
+    height: calc(100vh - 19vh);
+    overflow-y: auto;
+}
+
+.lista--container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
