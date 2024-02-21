@@ -24,6 +24,7 @@ export default function Curse() {
 
         return(
             <Cursa
+                id = {value.id}
                 key = {value.id}
                 ziplecare = {value.zi_plecare}
                 oraplecare = {value.ora_plecare}

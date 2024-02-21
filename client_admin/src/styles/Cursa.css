@@ -1,7 +1,7 @@
 /* Stilizare pentru containerul cursa */
 .cursa--container {
-    background-color: #f0f0f0; /* Culoare de fundal */
-    border: 1px solid #ccc; /* Border */
+    background-color: white; /* Culoare de fundal */
+    border: 1px solid #1a1d61; /* Border */
     border-radius: 8px; /* Bordura rotunjită */
     padding: 16px; /* Spațierea interioară */
     position: relative;;
@@ -9,6 +9,11 @@
     width: 400px;
     align-items: center;
     justify-content: center;
+  }
+
+  .cursa--container:hover {
+    transform: scale(1.02);
+    cursor: pointer;
   }
   
   /* Stilizare pentru titlul traseului */
@@ -38,4 +43,22 @@
     font-size: 14px; /* Dimensiune font */
     margin-bottom: 4px; /* Marginea de jos */
   }
+
+  .trash {
+    display: none;
+    position: absolute;
+    height: 60px;
+    width: auto;
+    right: 10px;
+    top: 10px;
+}
+
+.trash:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.cursa--container:hover .trash {
+    display: block;
+}
   

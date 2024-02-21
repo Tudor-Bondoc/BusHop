@@ -1,9 +1,22 @@
 import React from "react";
 import "../styles/Cursa.css"
+import Trash from "../../images/trash.png"
+import axios from "axios";
 
 export default function Cursa(props) {
 
     const ziPlecare = new Date(props.ziplecare).toLocaleDateString();
+
+    //Handler pentru stergere cursa
+    const handleDeleteCursa = async (id) => {
+
+        try {
+            await axios.delete(`http://localhost:3002/curse/${id}`);
+            window.location.reload()
+        } catch (error) {
+            console.error("Eroare la ștergerea cursei cu id-ul :", id, error);
+        }
+    }
 
     return(
         <div className="cursa--container">
@@ -13,6 +26,7 @@ export default function Cursa(props) {
             <p className="cursa--ziplecare">Zi plecare: {ziPlecare}</p>
             <p className="cursa--ziplecare">Ora plecare: {props.oraplecare}</p>
             <p className="cursa--ziplecare">Ora sosire: {props.orasosire}</p>
+            <img src={Trash} className="trash" onClick={() => handleDeleteCursa(props.id)} />
         </div>
     )
 }
