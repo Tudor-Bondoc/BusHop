@@ -8,6 +8,13 @@ router.get("/", async (req, res) => {
     res.json(toateCursele)
 })
 
+//Afiseaza o cursa dupa id
+router.get("/:id", async (req, res) => {
+    const { id } = req.params
+    const cursa = await Curse.findByPk(id)
+    res.json(cursa)
+})
+
 //Adauga o cursa
 router.post("/", async (req, res) => {
 

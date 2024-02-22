@@ -9,6 +9,8 @@ import Curse from "./pages/Curse";
 import AddTraseu from "./pages/AddTraseu"
 import AddAutocar from "./pages/AddAutocar";
 import AddCursa from "./pages/AddCursa";
+import CurseRezervari from "./pages/CurseRezervari";
+import CursaPage from "./pages/CursaPage";
 
 export default function App() {
   return(
@@ -20,10 +22,11 @@ export default function App() {
           <Route path="/curse" element={<Curse />} />
           <Route path="/trasee" element={<NewTrasee />} />
           <Route path="/autocare" element={<Autocare />} />
-          <Route path="/rezervari" element={<Trasee />} />
+          <Route path="/rezervari" element={<CurseRezervari />} />
           <Route path="/adaugare_traseu" element={<AddTraseu />} />
           <Route path="/adaugare_autocar" element={<AddAutocar />} />
           <Route path="/adaugare_cursa" element={<AddCursa />} />
+          <Route path="/curse/:id" element={<CursaPage />} />
         </Routes>
       </Router>
     </div>
