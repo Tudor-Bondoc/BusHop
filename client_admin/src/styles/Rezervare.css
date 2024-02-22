@@ -1,0 +1,30 @@
+.rezervare--container {
+    position: relative;
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.rezervare--container:first-child {
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.rezervare--container:not(:first-child) {
+    margin: 30px auto;
+}
+
+.rezervare--nume {
+    font-size: 18px; /* Dimensiunea fontului pentru nume */
+    color: #333; /* Culoarea textului pentru nume */
+    margin-bottom: 5px; /* Spațiere exterioară între nume și loc */
+}
+
+.rezervare--loc {
+    font-size: 16px; /* Dimensiunea fontului pentru loc */
+    color: #666; /* Culoarea textului pentru loc */
+}

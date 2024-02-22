@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import CursaRezervari from "../components/CursaRezervari"; 
 import "../styles/Cursa.css"
+import Rezervare from "../components/Rezervare";
 
 export default function CursaPage() {
 
@@ -11,6 +12,7 @@ export default function CursaPage() {
     const [value, setValue] = React.useState([])
     const [listaTrasee, setListaTrasee] = React.useState([])
     const [listaAutocare, setListaAutocare] = React.useState([])
+    const [listaRezervari, setListaRezervari] = React.useState([])
 
     React.useEffect(() => {
 
@@ -26,6 +28,10 @@ export default function CursaPage() {
             setListaAutocare(response.data)
         })
 
+        axios.get(`http://localhost:3002/rezervari/${id}`).then((response)=> {
+            setListaRezervari(response.data)
+        })
+
     }, [])
 
     const traseuSelectat = listaTrasee.find(traseu => traseu.id === value.TraseuID)
@@ -38,7 +44,18 @@ export default function CursaPage() {
         return <p>Autocarul nu a fost găsit încă.</p>;
     }
 
+    const lista = listaRezervari.map((value, key) => {
+        return (
+            <Rezervare
+                key = {value.id}
+                nume = {value.nume}
+                loc = {value.loc}
+            />
+        )
+    })
+
     return(
+        <div>
         <div className="cursa--page--container">
             <div className="cursa--page--left--side">
                 <CursaRezervari
@@ -56,6 +73,8 @@ export default function CursaPage() {
             <div className="cursa--page--right--side">
                 <button className="buton--rezervare">Adauga rezervare</button>
             </div>
+        </div>
+        {lista}
         </div>
     )
 }
