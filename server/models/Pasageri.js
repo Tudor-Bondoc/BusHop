@@ -21,13 +21,13 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'Pasageri'
     })
 
-    Pasageri.associate = (models) => {
+    /*Pasageri.associate = (models) => {
         Pasageri.hasMany(models.Rezervari, {
             foreignKey: 'PasagerID',
             as: 'rezervari',
             onDelete: "CASCADE"
         });
-    }
+    }*/
 
     return Pasageri
 

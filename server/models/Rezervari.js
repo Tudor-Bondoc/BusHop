@@ -4,17 +4,16 @@ module.exports = (sequelize, DataTypes) => {
         loc: {
             type: DataTypes.TINYINT,
             allowNull: false
+        },
+        nume: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     }, {
         tableName: 'Rezervari'
     })
 
     Rezervari.associate = (models) => {
-        Rezervari.belongsTo(models.Pasageri, {
-            as: 'pasager',
-            foreignKey: 'PasagerID',
-            onDelete: "NO ACTION"
-        });
         Rezervari.belongsTo(models.Curse, {
             as: 'cursa',
             foreignKey: 'CursaID',

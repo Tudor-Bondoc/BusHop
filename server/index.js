@@ -11,10 +11,12 @@ const db = require("./models")
 const traseeRouter = require('./routes/Trasee')
 const autocareRouter = require('./routes/Autocare')
 const curseRouter = require('./routes/Curse')
+const rezervariRouter = require('./routes/Rezervari')
 
 app.use("/trasee", traseeRouter)
 app.use("/autocare", autocareRouter)
 app.use("/curse", curseRouter)
+app.use("/rezervari", rezervariRouter)
 
 db.sequelize.sync().then(()=>{
     app.listen(3002, () => {
