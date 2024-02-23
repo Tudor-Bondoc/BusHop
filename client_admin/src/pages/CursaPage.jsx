@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import CursaRezervari from "../components/CursaRezervari"; 
 import "../styles/Cursa.css"
@@ -8,6 +8,7 @@ import Rezervare from "../components/Rezervare";
 export default function CursaPage() {
 
     let { id } = useParams()
+    let navigate = useNavigate()
 
     const [value, setValue] = React.useState([])
     const [listaTrasee, setListaTrasee] = React.useState([])
@@ -54,6 +55,11 @@ export default function CursaPage() {
         )
     })
 
+    const clickHanlder = () => {
+        console.log("s-a apasat")
+        navigate(`/adaugare_rezervare/${id}`)
+    }
+
     return(
         <div>
         <div className="cursa--page--container">
@@ -71,7 +77,7 @@ export default function CursaPage() {
                 />
             </div>
             <div className="cursa--page--right--side">
-                <button className="buton--rezervare">Adauga rezervare</button>
+                <button className="buton--rezervare" onClick={clickHanlder}>Adauga rezervare</button>
             </div>
         </div>
         {lista}

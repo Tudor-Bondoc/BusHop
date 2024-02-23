@@ -11,6 +11,7 @@ import AddAutocar from "./pages/AddAutocar";
 import AddCursa from "./pages/AddCursa";
 import CurseRezervari from "./pages/CurseRezervari";
 import CursaPage from "./pages/CursaPage";
+import AddRezervare from "./pages/AddRezervare";
 
 export default function App() {
   return(
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/adaugare_autocar" element={<AddAutocar />} />
           <Route path="/adaugare_cursa" element={<AddCursa />} />
           <Route path="/curse/:id" element={<CursaPage />} />
+          <Route path="/adaugare_rezervare/:id" element={<AddRezervare />} />
         </Routes>
       </Router>
     </div>
