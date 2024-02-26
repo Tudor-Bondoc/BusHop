@@ -1,0 +1,12 @@
+.cautare--curse {
+    position: relative;
+    background-color: white;
+    width: 1000px;
+    height: 200px;
+    margin-top: -20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 5px 10px 8px #888888;
+    z-index: 2;
+}
