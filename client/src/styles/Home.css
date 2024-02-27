@@ -1,3 +1,7 @@
+/*.home--container {
+    background-color: lightgray;
+}*/
+
 .cautare--curse {
     position: relative;
     background-color: white;
@@ -53,4 +57,12 @@ button[type="submit"]:hover {
 span {
     color: red;
     font-weight: 600;
+}
+
+.curse--container {
+    position: relative;
+    margin: 30px auto;
+    width: 1000px;
+    height: 500px;
+    border: 1px solid black;
 }

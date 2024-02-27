@@ -1,0 +1,10 @@
+.cursa--container {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 30px;
+}
