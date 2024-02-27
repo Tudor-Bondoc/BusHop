@@ -9,4 +9,48 @@
     border-radius: 10px;
     box-shadow: 5px 10px 8px #888888;
     z-index: 2;
+    display: flex;
+    flex-direction: row;
+    /*align-items: center;*/
+    justify-content: center;
+}
+
+Form {
+    margin: 50px auto;
+}
+
+input {
+    margin: 0px 10px;
+    border: 1px solid #1a1d61; /* Bordură de culoare */
+    border-radius: 5px; /* Rotunjirea colțurilor pentru câmpurile de input */
+    background-color: #fff; /* Fond alb pentru câmpuri */
+    color: #1a1d61; /* Culoarea textului pentru câmpuri */
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+button[type="submit"] {
+    display: block;
+    margin: 25px auto;
+    background-color: #1a1d61; /* Culoarea de fundal pentru buton */
+    color: #fff; /* Culoarea textului pentru buton */
+    padding: 10px 20px; /* Spațiere între text și margine */
+    border: none; /* Fără bordură */
+    border-radius: 5px; /* Rotunjirea colțurilor pentru buton */
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0d0f30; /* Culoarea de fundal a butonului la survol */
+}
+
+span {
+    color: red;
+    font-weight: 600;
 }
