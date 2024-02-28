@@ -1,5 +1,6 @@
 import React from "react";
 import {Formik, Form, Field, ErrorMessage} from 'formik'
+import { format } from 'date-fns'
 import * as Yup from 'yup'
 import axios from "axios"
 import Header from "../components/Header";
@@ -10,6 +11,7 @@ export default function Home() {
 
     const [show, setShow] = React.useState(false)
     const [listaCurse, setListaCurse] = React.useState([])
+    const [listaCurseFiltrata, setListaCurseFiltrata] = React.useState([])
     const [listaTrasee, setListaTrasee] = React.useState([])
     const [listaAutocare, setListaAutocare] = React.useState([])
 
@@ -30,20 +32,42 @@ export default function Home() {
 
     }, [])
 
-    function onSubmit(data) {
+    function onSubmit(values) {
+
+        const orasPlecare = values.oras_pornire.toLowerCase();
+        const orasDestinatie = values.oras_destinatie.toLowerCase();
+        const dataPlecare = format(new Date(values.data_plecare), 'M/d/yyyy');
+
+        console.log(dataPlecare)
+
+        const listaFiltrata = listaCurse.filter(cursa => {
+            const traseuCursa = listaTrasee.find(traseu => traseu.id === cursa.TraseuID);
+            if (!traseuCursa) {
+                return false; // Dacă nu există traseu pentru cursă, o excludem
+            }
+            const dataPlecareCursa = format(new Date(cursa.zi_plecare), 'M/d/yyyy');
+
+            return traseuCursa.oras_pornire.toLowerCase() === orasPlecare &&
+                   traseuCursa.oras_sosire.toLowerCase() === orasDestinatie &&
+                   dataPlecare === dataPlecareCursa;
+        })
+
+        setListaCurseFiltrata(listaFiltrata)
         setShow(true)
+
+        /*setShow(true)
         // Filtrati lista de curse bazată pe valorile introduse în formular
         const curseFiltrate = listaCurse.filter( cursa => {
             return cursa.oras_plecare === data.oras_pornire &&
                cursa.oras_sosire === data.oras_destinatie /*&&
-               cursa.data_plecare === data.data_plecare;*/
+               cursa.data_plecare === data.data_plecare;
             })
         console.log(listaCurse)
         console.log(curseFiltrate)
-        setListaCurse(curseFiltrate) 
+        setListaCurse(curseFiltrate) */
     }
 
-    const lista = listaCurse.map( (value, key) => {
+    const lista = listaCurseFiltrata.map( (value, key) => {
 
         const traseuSelectat = listaTrasee.find(traseu => traseu.id === value.TraseuID)
         if (!traseuSelectat) {
