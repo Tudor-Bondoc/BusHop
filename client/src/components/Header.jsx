@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import "../styles/Header.css"
 
 export default function Header() {
@@ -9,8 +10,8 @@ export default function Header() {
                     <h1 className="logo">BusHop</h1>
                 </div>
                 <div className="right">
-                    <p className="navi--item">Log in</p>
-                    <p className="navi--item">Sign up</p>
+                    <Link to="/login" className="navi--item">Log in</Link>
+                    <Link to="/signup" className="navi--item">Sign up</Link>
                 </div>
             </div>
         </div>
