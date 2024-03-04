@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom"
+import "../styles/Register.css"
 
 export default function Login() {
 
@@ -18,6 +20,7 @@ export default function Login() {
 
     return(
         <div className="login--page--container">
+            <Link to="/" className="link--form">Home</Link>
             <label>Email</label>
             <input 
                 type="text"
@@ -28,8 +31,10 @@ export default function Login() {
                 type="password"
                 onChange={(event)=>{setParola(event.target.value)}} 
             />
+            <p className="already--registered">Nu aveti cont?</p>
+            <Link to="/signup" className="link--form">Inregistrare</Link>
             
-            <button onClick={login}>Login</button>
+            <button onClick={login} className="buton--signup">Login</button>
 
         </div>
     )

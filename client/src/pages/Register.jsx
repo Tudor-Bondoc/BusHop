@@ -36,6 +36,8 @@ export default function Register() {
             >
                 <Form>
 
+                    <Link to="/" className="link--form">Home</Link>
+                    
                     <label>Nume: </label>
                     <ErrorMessage name="nume" component="span" />
                     <Field
