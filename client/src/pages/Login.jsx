@@ -14,7 +14,12 @@ export default function Login() {
             parola: parola
         }
         axios.post("http://localhost:3002/pasageri/login", data).then((response)=>{
-            console.log(response.data)
+            if (response.data.error) {
+                alert(response.data.error)
+            }
+            else {
+                sessionStorage.setItem("accessToken", response.data)
+            }
         })
     }
 

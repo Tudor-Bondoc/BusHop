@@ -3,6 +3,8 @@ const router = express.Router()
 const { Pasageri } = require("../models")
 const bcrypt = require("bcrypt")
 
+const {sign} = require('jsonwebtoken')
+
 //Adauga un user
 router.post("/", async(req, res) => {
     const { nume, email, parola, telefon } = req.body
@@ -18,7 +20,7 @@ router.post("/", async(req, res) => {
 })
 
 router.post("/login", async(req, res) => {
-    
+
     const { email, parola } = req.body
     const pasager = await Pasageri.findOne({
         where: {
@@ -32,7 +34,12 @@ router.post("/login", async(req, res) => {
         if (!match) {
             res.json({error: "Wrong username - password combination"})
         }
-        res.json("You logged in")
+        const accessToken = sign({
+            nume: pasager.nume,
+            id: pasager.id
+        }, "importantsecret")
+        
+        res.json(accessToken)
     })
 
 })
