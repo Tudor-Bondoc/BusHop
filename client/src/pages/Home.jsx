@@ -55,16 +55,6 @@ export default function Home() {
         setListaCurseFiltrata(listaFiltrata)
         setShow(true)
 
-        /*setShow(true)
-        // Filtrati lista de curse bazată pe valorile introduse în formular
-        const curseFiltrate = listaCurse.filter( cursa => {
-            return cursa.oras_plecare === data.oras_pornire &&
-               cursa.oras_sosire === data.oras_destinatie /*&&
-               cursa.data_plecare === data.data_plecare;
-            })
-        console.log(listaCurse)
-        console.log(curseFiltrate)
-        setListaCurse(curseFiltrate) */
     }
 
     const lista = listaCurseFiltrata.map( (value, key) => {

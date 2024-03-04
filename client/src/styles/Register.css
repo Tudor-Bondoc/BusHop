@@ -1,0 +1,67 @@
+/* Styles for the register form */
+.login--page--container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    position: relative;
+  }
+  
+  .login--page--container label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+  
+  .login--page--container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-left: 0px;
+  }
+  
+  .login--page--container input:focus {
+    outline: none;
+    border-color: #6f9fff;
+  }
+  
+  .login--page--container span {
+    color: red;
+  }
+  
+  .login--page--container button {
+    width: 40%;
+    padding: 10px;
+    background-color: #6f9fff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin: 10px auto;
+    display: block;
+  }
+  
+  .login--page--container button:hover {
+    background-color: #5680e9;
+  }
+
+  .already--registered {
+    position: relative;
+  }
+
+  .link--form {
+    display: inline;
+    text-decoration: none;
+    color: #6f9fff;
+    margin-bottom: 10px;
+  }
+  

@@ -5,7 +5,7 @@
 .cautare--curse {
     position: relative;
     background-color: white;
-    width: 1000px;
+    width: 1200px;
     height: 200px;
     margin-top: -20px;
     margin-left: auto;
@@ -29,7 +29,7 @@ input {
     border-radius: 5px; /* Rotunjirea colțurilor pentru câmpurile de input */
     background-color: #fff; /* Fond alb pentru câmpuri */
     color: #1a1d61; /* Culoarea textului pentru câmpuri */
-    width: 200px;
+    width: 300px;
     height: 40px;
     text-align: center;
     font-size: 15px;
@@ -62,6 +62,6 @@ span {
 .curse--container {
     position: relative;
     margin: 30px auto;
-    width: 1000px;
-    height: 500px;
+    width: 1200px;
+    margin-bottom: 200px;
 }
