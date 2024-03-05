@@ -36,7 +36,9 @@ export default function Home() {
 
         const orasPlecare = values.oras_pornire.toLowerCase();
         const orasDestinatie = values.oras_destinatie.toLowerCase();
-        const dataPlecare = format(new Date(values.data_plecare), 'M/d/yyyy');
+        let dataPlecare = 0
+        if (values.data_plecare!='')
+            dataPlecare = format(new Date(values.data_plecare), 'M/d/yyyy');
 
         console.log(dataPlecare)
 
@@ -47,9 +49,13 @@ export default function Home() {
             }
             const dataPlecareCursa = format(new Date(cursa.zi_plecare), 'M/d/yyyy');
 
+            if (dataPlecare!=0) {
+                return traseuCursa.oras_pornire.toLowerCase() === orasPlecare &&
+                    traseuCursa.oras_sosire.toLowerCase() === orasDestinatie &&
+                    dataPlecare === dataPlecareCursa;
+            }
             return traseuCursa.oras_pornire.toLowerCase() === orasPlecare &&
-                   traseuCursa.oras_sosire.toLowerCase() === orasDestinatie &&
-                   dataPlecare === dataPlecareCursa;
+                   traseuCursa.oras_sosire.toLowerCase() === orasDestinatie
         })
 
         setListaCurseFiltrata(listaFiltrata)
@@ -87,7 +93,7 @@ export default function Home() {
     const validationSchema = Yup.object().shape({
         oras_pornire: Yup.string().required('!'),
         oras_destinatie: Yup.string().required('!'),
-        data_plecare: Yup.date().required('!'),
+        data_plecare: Yup.date()
     })
 
     const initialValues = {
