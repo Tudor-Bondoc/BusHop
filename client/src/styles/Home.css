@@ -36,7 +36,7 @@ input {
     font-weight: 300;
 }
 
-button[type="submit"] {
+.home--button {
     display: block;
     margin: 25px auto;
     background-color: #1a1d61; /* Culoarea de fundal pentru buton */
@@ -50,7 +50,7 @@ button[type="submit"] {
     font-size: 15px;
 }
 
-button[type="submit"]:hover {
+.home--button:hover {
     background-color: #0d0f30; /* Culoarea de fundal a butonului la survol */
 }
 

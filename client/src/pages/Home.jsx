@@ -136,7 +136,7 @@ export default function Home() {
                         />
                         <ErrorMessage name="data_plecare" component="span" />
 
-                        <button type="submit">Cauta curse</button>
+                        <button type="submit" className="home--button">Cauta curse</button>
 
                     </Form>
 

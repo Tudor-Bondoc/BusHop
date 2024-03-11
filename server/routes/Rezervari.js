@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { Rezervari } = require("../models")
+const {validateToken} = require('../middlewares/AuthMiddleware')
 
 //Afiseaza toate rezervarile specifice unei curse
 router.get("/:id", async (req, res) => {
@@ -18,7 +19,7 @@ router.get("/:id", async (req, res) => {
 })
 
 //Adauga o rezervare la o cursa
-router.post("/:id", async (req, res) => {
+router.post("/:id", validateToken, async (req, res) => {
 
     let rezervare = req.body
 
