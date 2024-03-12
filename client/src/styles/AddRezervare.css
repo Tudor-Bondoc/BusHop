@@ -11,7 +11,7 @@
 }
 
 .form--modified {
-    max-height: 200px;
+    max-height: 110px;
 }
 
 .form--container--default2 {
@@ -21,24 +21,6 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* O umbra ușoară pentru efect de adâncime */
     margin: 50px auto;
     width: 500px;
-}
-
-.label2 {
-    color: #1a1d61; /* Culoarea textului pentru etichete */
-    margin-bottom: 5px; /* Spațierea între etichete și câmpuri */
-    display: block; /* Face ca etichetele să fie afișate pe linii separate */
-    margin-top: 10px;
-}
-
-.input--nume {
-    width: 100%; /* Lățime completă pentru câmpurile de input */
-    padding: 8px; /* Spațiere între text și margine */
-    margin-bottom: 15px; /* Spațierea între câmpuri */
-    border: 1px solid #1a1d61; /* Bordură de culoare */
-    border-radius: 5px; /* Rotunjirea colțurilor pentru câmpurile de input */
-    background-color: #fff; /* Fond alb pentru câmpuri */
-    color: #1a1d61; /* Culoarea textului pentru câmpuri */
-    margin-left: 0px;
 }
 
 .loc--selectat {

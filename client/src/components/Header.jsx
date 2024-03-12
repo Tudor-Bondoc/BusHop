@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import "../styles/Header.css"
+import { AuthContext } from '../helpers/AuthContext'
 
 export default function Header() {
+
+    const {authState} = React.useContext(AuthContext)
+
     return(
         <div className="header--container">
             <div className="navi">
@@ -10,8 +14,8 @@ export default function Header() {
                     <h1 className="logo">BusHop</h1>
                 </div>
                 <div className="right">
-                    <Link to="/login" className="navi--item">Log in</Link>
-                    <Link to="/signup" className="navi--item">Sign up</Link>
+                    {!authState && <Link to="/login" className="navi--item">Log in</Link>}
+                    {!authState && <Link to="/signup" className="navi--item">Sign up</Link>}
                 </div>
             </div>
         </div>

@@ -23,9 +23,11 @@ router.post("/:id", validateToken, async (req, res) => {
 
     let rezervare = req.body
 
-    const cursaId = req.params.id
-
-    rezervare = { ...rezervare, CursaID: cursaId}
+    rezervare = 
+    { 
+        ...rezervare,
+        nume: req.pasager.nume
+    }
 
     await Rezervari.create(rezervare)
 

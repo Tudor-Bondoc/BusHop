@@ -1,12 +1,16 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "../styles/Register.css"
+import { AuthContext } from '../helpers/AuthContext'
 
 export default function Login() {
 
     const [email, setEmail] = React.useState("")
     const [parola, setParola] = React.useState("")
+    const {setAuthState} = React.useContext(AuthContext)
+
+    let navigate = useNavigate()
 
     function login() {
         const data = {
@@ -19,6 +23,8 @@ export default function Login() {
             }
             else {
                 sessionStorage.setItem("accessToken", response.data)
+                setAuthState(true)
+                navigate("/")
             }
         })
     }

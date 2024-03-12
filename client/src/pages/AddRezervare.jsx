@@ -2,7 +2,6 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as Yup from 'yup'
-import { Formik, Form, Field } from "formik";
 import Scaun from "../components/Scaun";
 import "../styles/AddRezervare.css"
 
@@ -51,20 +50,12 @@ export default function AddRezervare() {
         )
     })
 
-    const initialValues = {
-        nume: ""
-    }
-
-    const validationSchema = Yup.object().shape({
-        nume: Yup.string().required(),
-    })
-
     let navigate = useNavigate()
 
     //Functie pentru submit form
-    function onSubmit(data) {
+    function onSubmit() {
 
-        const dataActualizata = {...data, loc: numarScaunSelectat, CursaID: id}
+        const dataActualizata = {loc: numarScaunSelectat, CursaID: id}
 
         axios.post(`http://localhost:3002/rezervari/${id}`, dataActualizata, {
             headers: {
@@ -85,22 +76,12 @@ export default function AddRezervare() {
         <div className="add--rezervare--container">
 
         <div className="form--container--default2 form--modified">
-            <Formik
-                initialValues={initialValues}
-                onSubmit={onSubmit}
-                validationSchema={validationSchema}
-            >
-                <Form className="form--rez">
-                    <label className="label2">Nume pasager</label>
-                    <Field
-                        id = "input--nume"
-                        name = "nume"
-                        className = "input--nume"
-                    />
+            
+                <div className="form--rez">
                     <p className="loc--selectat">Loc selectat: {numarScaunSelectat}</p>
-                    <button type="submit" className="rez--button">Adaugare rezervare</button>
-                </Form>
-            </Formik>
+                    <button type="submit" className="rez--button" onClick={onSubmit}>Adaugare rezervare</button>
+                </div>
+
         </div>
 
         <div className="lista--scaune--container">

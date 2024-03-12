@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { Pasageri } = require("../models")
 const bcrypt = require("bcrypt")
+const {validateToken} = require("../middlewares/AuthMiddleware")
 
 const {sign} = require('jsonwebtoken')
 
@@ -19,6 +20,10 @@ router.post("/", async(req, res) => {
     })
 })
 
+router.get("/auth", validateToken, async(req, res) => {
+    res.json(req.pasager)
+})
+
 router.post("/login", async(req, res) => {
 
     const { email, parola } = req.body
@@ -30,18 +35,22 @@ router.post("/login", async(req, res) => {
 
     if (!pasager) res.json({error: "User does not exist"})
 
-    bcrypt.compare(parola, pasager.parola).then((match)=>{
-        if (!match) {
-            res.json({error: "Wrong username - password combination"})
-        }
-        const accessToken = sign({
-            nume: pasager.nume,
-            id: pasager.id
-        }, "importantsecret")
-        
-        res.json(accessToken)
-    })
-
+    else
+    {
+        bcrypt.compare(parola, pasager.parola).then((match)=>{
+            if (!match) {
+                res.json({error: "Wrong username - password combination"})
+            }
+            else 
+            {
+                const accessToken = sign({
+                    nume: pasager.nume,
+                    id: pasager.id
+                }, "importantsecret")
+                res.json(accessToken)
+            }
+        })
+    }
 })
 
 

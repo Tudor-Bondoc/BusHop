@@ -10,6 +10,7 @@ const validateToken = (req, res, next) => {
 
     try {
         const validToken = verify(accessToken, "importantsecret")
+        req.pasager = validToken
         if (validToken) {
             return next()
         }
