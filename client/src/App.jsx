@@ -9,7 +9,11 @@ import axios from "axios";
 
 export default function App() {
 
-  const [authState, setAuthState] = React.useState(false)
+  const [authState, setAuthState] = React.useState({
+    nume: "",
+    id: 0,
+    status: false
+  })
 
   React.useEffect(()=>{
     axios.get("http://localhost:3002/pasageri/auth", {
@@ -18,10 +22,17 @@ export default function App() {
       }
     }).then((response)=>{
       if(response.data.error){
-        setAuthState(false)
+        setAuthState({
+          ...authState,
+          status: false
+        })
       }
       else {
-        setAuthState(true)
+        setAuthState({
+          nume: response.data.nume,
+          id: response.data.id,
+          status: true
+        })
       }
     })
   }, [])

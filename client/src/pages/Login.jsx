@@ -8,7 +8,7 @@ export default function Login() {
 
     const [email, setEmail] = React.useState("")
     const [parola, setParola] = React.useState("")
-    const {setAuthState} = React.useContext(AuthContext)
+    const {authState, setAuthState} = React.useContext(AuthContext)
 
     let navigate = useNavigate()
 
@@ -22,8 +22,12 @@ export default function Login() {
                 alert(response.data.error)
             }
             else {
-                sessionStorage.setItem("accessToken", response.data)
-                setAuthState(true)
+                sessionStorage.setItem("accessToken", response.data.token)
+                setAuthState({
+                    nume: response.data.nume,
+                    id: response.data.id,
+                    status: true
+                })
                 navigate("/")
             }
         })

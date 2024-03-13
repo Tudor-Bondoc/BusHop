@@ -42,3 +42,10 @@
     font-size: 50px;
     font-weight: 600;
 }
+
+.navi--username {
+    color: white;
+    margin-left: 30px;
+    font-size: 30px;
+    text-decoration: none;
+}

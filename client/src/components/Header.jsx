@@ -5,7 +5,16 @@ import { AuthContext } from '../helpers/AuthContext'
 
 export default function Header() {
 
-    const {authState} = React.useContext(AuthContext)
+    const {authState, setAuthState} = React.useContext(AuthContext)
+
+    const logout = () => {
+        sessionStorage.removeItem("accessToken")
+        setAuthState({
+            nume: "",
+            id: 0,
+            status: false
+        })
+    }
 
     return(
         <div className="header--container">
@@ -14,9 +23,10 @@ export default function Header() {
                     <h1 className="logo">BusHop</h1>
                 </div>
                 <div className="right">
-                    {!authState && <Link to="/login" className="navi--item">Log in</Link>}
-                    {!authState && <Link to="/signup" className="navi--item">Sign up</Link>}
-                    {authState && <p className="navi--item">Logout</p>}
+                    {!authState.status && <Link to="/login" className="navi--item">Log in</Link>}
+                    {!authState.status && <Link to="/signup" className="navi--item">Sign up</Link>}
+                    {authState.status && <p className="navi--item" onClick={logout}>Logout</p>}
+                    <h1 className="navi--username">{authState.nume}</h1>
                 </div>
             </div>
         </div>

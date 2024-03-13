@@ -47,7 +47,11 @@ router.post("/login", async(req, res) => {
                     nume: pasager.nume,
                     id: pasager.id
                 }, "importantsecret")
-                res.json(accessToken)
+                res.json({
+                    token: accessToken,
+                    nume: pasager.nume,
+                    id: pasager.id
+                })
             }
         })
     }
