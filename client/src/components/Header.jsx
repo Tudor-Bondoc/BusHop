@@ -16,6 +16,7 @@ export default function Header() {
                 <div className="right">
                     {!authState && <Link to="/login" className="navi--item">Log in</Link>}
                     {!authState && <Link to="/signup" className="navi--item">Sign up</Link>}
+                    {authState && <p className="navi--item">Logout</p>}
                 </div>
             </div>
         </div>
