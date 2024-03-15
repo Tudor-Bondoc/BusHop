@@ -3,9 +3,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as Yup from 'yup'
 import Scaun from "../components/Scaun";
+import { AuthContext } from '../helpers/AuthContext'
 import "../styles/AddRezervare.css"
 
 export default function AddRezervare() {
+
+
+    const {authState} = React.useContext(AuthContext)
 
     let { id } = useParams()
 
@@ -78,6 +82,7 @@ export default function AddRezervare() {
         <div className="form--container--default2 form--modified">
             
                 <div className="form--rez">
+                    <p className="loc--selectat">Nume pasager: {authState.nume}</p>
                     <p className="loc--selectat">Loc selectat: {numarScaunSelectat}</p>
                     <button type="submit" className="rez--button" onClick={onSubmit}>Adaugare rezervare</button>
                 </div>

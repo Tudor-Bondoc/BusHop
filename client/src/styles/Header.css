@@ -49,3 +49,63 @@
     font-size: 30px;
     text-decoration: none;
 }
+
+.account--logo {
+    width: 50px;
+    height: auto;
+}
+
+.account--logo:hover {
+    cursor: pointer;
+}
+
+.profile--hover {
+    display: none; 
+    position: absolute;
+    right: 10px;
+    top: 87px;
+    background-color: #fff;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.account--logo:hover + .profile--hover, 
+.profile--hover:hover {
+    display: block;
+}
+
+/* Stilizare pentru toate elementele din .profile--hover */
+.profile--hover * {
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #eee; /* linie sub fiecare element */
+}
+
+/* Stilizare pentru username */
+.profile--username {
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0; /* margini rotunjite doar la partea de sus */
+}
+
+/* Stilizare pentru linkul "Profil" */
+.profile--link {
+    font-size: 16px;
+    color: #1a1d61; 
+    cursor: pointer; 
+}
+
+/* Stilizare pentru linkul "Logout" */
+.profile--logout {
+    font-size: 16px;
+    color: #dc3545;
+    border-bottom: none;
+}
+
+.profile--logout:hover {
+    cursor: pointer;
+}
