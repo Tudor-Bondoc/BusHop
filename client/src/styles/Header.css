@@ -93,10 +93,26 @@
 }
 
 /* Stilizare pentru linkul "Profil" */
-.profile--link {
+/*.profile--link {
     font-size: 16px;
     color: #1a1d61; 
-    cursor: pointer; 
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}*/
+
+.profile--link {
+    font-size: 16px;
+    color: #1a1d61;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: block; /* Adăugăm display: block pentru a-l face să se afișeze pe o singură linie și să fie centrat */
+    padding: 10px 0; /* Adăugăm puțin spațiu deasupra și dedesubtul linkului pentru un aspect mai echilibrat */
+}
+
+.profile--link:hover {
+    color: #0056b3; /* Schimbăm culoarea la hover pentru a indica că este interactiv */
 }
 
 /* Stilizare pentru linkul "Logout" */

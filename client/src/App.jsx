@@ -5,7 +5,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AddRezervare from "./pages/AddRezervare";
 import { AuthContext } from '../src/helpers/AuthContext'
+import Header from "./components/Header";
 import axios from "axios";
+import Profile from "./pages/Profile";
 
 export default function App() {
 
@@ -46,6 +48,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/adaugare_rezervare/:id" element={<AddRezervare />} />
+          <Route path="/profile" element={<Profile />}/>
         </Routes>
       </Router>
       </AuthContext.Provider>

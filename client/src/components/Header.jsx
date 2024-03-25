@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "../styles/Header.css"
 import { AuthContext } from '../helpers/AuthContext'
 import accountPick from '../../images/accountj2.png'
@@ -8,6 +8,8 @@ export default function Header() {
 
     const {authState, setAuthState} = React.useContext(AuthContext)
 
+    let navigate = useNavigate()
+
     const logout = () => {
         sessionStorage.removeItem("accessToken")
         setAuthState({
@@ -15,6 +17,7 @@ export default function Header() {
             id: 0,
             status: false
         })
+        navigate("/")
     }
 
     return(
@@ -30,7 +33,7 @@ export default function Header() {
                     {authState.status &&
                         <div className="profile--hover">
                             <h1 className="profile--username">{authState.nume}</h1>
-                            <h2 className="profile--link">Profil</h2>
+                            <Link to="/profile" className="profile--link">Profil</Link>
                             <h3 className="profile--logout" onClick={logout}>Logout</h3>
                         </div>
                     }

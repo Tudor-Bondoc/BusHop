@@ -1,0 +1,19 @@
+
+
+.profile--tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.profile--tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile--tab:hover {
+    background-color: #f0f0f0;
+}
+
