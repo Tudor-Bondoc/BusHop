@@ -18,6 +18,8 @@ export default function Profile() {
     const getUserData = async () => {
         try {
             const response = await axios.get(`http://localhost:3002/pasageri/${authState.id}`);
+            if (response.data.error)
+                console.log("Aici e problema")
             setUser(response.data);
         } catch (error) {
             console.error("Error fetching user data:", error);

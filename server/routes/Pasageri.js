@@ -20,26 +20,26 @@ router.post("/", async(req, res) => {
     })
 })
 
+router.get("/auth", validateToken, async(req, res) => {
+    res.json(req.pasager)
+})
+
 router.get("/:id", async (req, res) => {
     const { id } = req.params;
     try {
         // Găsește pasagerul în baza de date
-        const pasager = await Pasageri.findByPk(id);
+        const pasagerr = await Pasageri.findByPk(id);
         // Verifică dacă pasagerul a fost găsit
-        if (!pasager) {
-            return res.status(404).json({ error: "Pasager not found" });
+        if (!pasagerr) {
+            return res.status(404).json({ error: "Pasagerr not found" });
         }
         // Returnează pasagerul găsit
-        res.json(pasager);
+        res.json(pasagerr);
     } catch (error) {
         console.error("Error retrieving pasager:", error);
         res.status(500).json({ error: "Could not retrieve pasager" });
     }
 });
-
-router.get("/auth", validateToken, async(req, res) => {
-    res.json(req.pasager)
-})
 
 router.post("/login", async(req, res) => {
 
