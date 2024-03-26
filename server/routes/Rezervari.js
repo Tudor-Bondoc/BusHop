@@ -18,6 +18,21 @@ router.get("/:id", async (req, res) => {
 
 })
 
+//Afiseaza toate rezervarile unui pasager
+router.get("/byuser/:name", async (req, res) => {
+
+    const { name } = req.params
+
+    const toateRezervarile = await Rezervari.findAll({
+        where: {
+            nume: name
+        }
+    })
+
+    res.json(toateRezervarile)
+
+})
+
 //Adauga o rezervare la o cursa
 router.post("/:id", validateToken, async (req, res) => {
 
