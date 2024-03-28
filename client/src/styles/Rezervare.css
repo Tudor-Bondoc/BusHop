@@ -1,0 +1,65 @@
+.rezervare--container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    width: 300px; /* Lățime fixă pentru fiecare rezervare */
+    margin-right: 10px;
+  }
+  
+  .rezervare--container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rezervare--titlu {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .rezervare--detalii,
+  .rezervare--status {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  .rezervare--loc {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #888;
+  }
+  
+  .rezervare--status {
+    color: #007bff;
+  }
+  
+  .rezervare--orar {
+    color: #28a745;
+  }
+  
+  .rezervare--loc {
+    color: #6c757d;
+  }
+  
+  .rezervare--container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .rezervare--container:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+  }
+  

@@ -15,41 +15,47 @@
     margin-top: 50px;
 }*/
 
-.profile--tab {
+.profile--tab2 {
     padding: 10px 20px;
     cursor: pointer;
     border: 1px solid #1a1d61; /* modificare culoare border */
     border-radius: 5px;
     width: 400px;
-    margin-top: 50px;
+    margin-top: -30px;
     transition: all 0.3s ease; /* adăugare tranziție pentru o animație mai fluidă */
+    z-index: 3;
+    background-color: white;
 }
 
-.profile--tab:hover {
-    background-color: #f0f0f0; /* modificare culoare background la hover */
+
+.profile--tab1 {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #1a1d61; /* modificare culoare border */
+    border-radius: 5px;
+    width: 400px;
+    margin-top: -30px;
+    transition: all 0.3s ease; /* adăugare tranziție pentru o animație mai fluidă */
+    z-index: 3;
+    background-color: white;
+    max-height: 300px;
 }
 
-.profile--tab h1, .profile--tab h2, .profile--tab h3 {
-    margin: 5px 0; /* modificare margini între elementele de text */
-    font-family: Arial, sans-serif; /* modificare font */
-    color: #333; /* culoare text */
-}
+.rezervari-container {
+    display: inline-flex; /* Elemente afișate pe același rând */
+  }
 
-.profile--tab h1 {
-    font-size: 24px; /* modificare dimensiune font pentru nume */
-    font-weight: bold; /* modificare grosime font pentru nume */
-}
-
-.profile--tab h2 {
-    font-size: 18px; /* modificare dimensiune font pentru email */
-    font-style: italic; /* modificare stil font pentru email */
-    color: #666; /* modificare culoare text pentru email */
-}
-
-.profile--tab h3 {
-    font-size: 16px; /* modificare dimensiune font pentru telefon */
-    color: #777; /* modificare culoare text pentru telefon */
-}
-
+  .rezervare-wrapper {
+    display: flex; /* Afișează rezervarea pe întreaga lățime a containerului */
+    transition: transform 0.5s ease; /* Efect de tranziție pentru navigare */
+  }
+  
+  .navigation-buttons {
+    margin-top: 10px; /* Spațiu între butoane și rezervare */
+  }
+  
+  .navigation-buttons button {
+    font-size: 24px; /* Mărimea fontului pentru butoane */
+  }
 
 

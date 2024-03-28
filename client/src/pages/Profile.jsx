@@ -21,6 +21,21 @@ export default function Profile() {
     const [listaTrasee, setListaTrasee] = React.useState([])
     const [listaAutocare, setListaAutocare] = React.useState([])
 
+    const [currentIndex, setCurrentIndex] = React.useState(0);
+    const totalRezervari = rezervari.length;
+
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === totalRezervari - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const handlePrev = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? totalRezervari - 1 : prevIndex - 1
+        );
+    };
+
     const getUserData = async () => {
         try {
             const response = await axios.get(`http://localhost:3002/pasageri/${authState.id}`);
@@ -67,34 +82,28 @@ export default function Profile() {
 
     return (
         <div className="profile--container">
-            <Header />
-            <div className="profile--tabs">
-                <div className="profile--tab">
-                    <h1>{user.nume}</h1>
-                    <h2>{user.email}</h2>
-                    <h3>{user.telefon}</h3>
-                </div>
-                <div className="profile--tab">
-                <h1>Rezervări</h1>
-                    {rezervari.map((rezervare, index) => {
-                        const { traseu, autocar, cursa } = getCursaDetails(rezervare.CursaID);
-                        return (
-                            <Rezervare
-                                key={index}
-                                orasplecare={traseu.oras_pornire}
-                                orassosire={traseu.oras_sosire}
-                                autocar={autocar.numar_inmatriculare}
-                                status={cursa.status}
-                                ziplecare={cursa.zi_plecare}
-                                oraplecare={cursa.ora_plecare}
-                                orasosire={cursa.ora_sosire}
-                                loc={rezervare.loc}
-                            />
-                        );
-                    })}
-                </div>
+          <Header />
+          <div className="profile--tabs">
+            <div className="profile--tab1">
+              <h1>{user.nume}</h1>
+              <h2>{user.email}</h2>
+              <h3>{user.telefon}</h3>
             </div>
-            
+            <div className="profile--tab2">
+              <h1>Rezervări</h1>
+              <div className="rezervare-container">
+                <div className="rezervare-wrapper">
+                  {rezervari.map((rezervare, index) => (
+                    <Rezervare key={index} {...rezervare} />
+                  ))}
+                </div>
+              </div>
+              <div className="navigation-buttons">
+                <button onClick={handlePrev}>&lt;</button>
+                <button onClick={handleNext}>&gt;</button>
+              </div>
+            </div>
+          </div>
         </div>
-    );
-}
+      );
+    }
