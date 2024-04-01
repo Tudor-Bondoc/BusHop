@@ -1,19 +1,14 @@
 
+/*.rezervari-container {
+  display: flex; 
+  justify-content: flex-start; 
+}*/
 
 .profile--tabs {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 20px;
 }
-
-/*.profile--tab {
-    padding: 10px 20px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 400px;
-    margin-top: 50px;
-}*/
 
 .profile--tab2 {
     padding: 10px 20px;
@@ -41,21 +36,8 @@
     max-height: 300px;
 }
 
-.rezervari-container {
-    display: inline-flex; /* Elemente afișate pe același rând */
-  }
 
-  .rezervare-wrapper {
-    display: flex; /* Afișează rezervarea pe întreaga lățime a containerului */
-    transition: transform 0.5s ease; /* Efect de tranziție pentru navigare */
-  }
-  
-  .navigation-buttons {
-    margin-top: 10px; /* Spațiu între butoane și rezervare */
-  }
-  
-  .navigation-buttons button {
-    font-size: 24px; /* Mărimea fontului pentru butoane */
-  }
+
+
 
 

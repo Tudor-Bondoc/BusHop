@@ -3,7 +3,32 @@ import Header from "../components/Header";
 import Rezervare from "../components/Rezervare"
 import { AuthContext } from '../helpers/AuthContext';
 import axios from "axios";
+import Slider from "react-slick"
 import "../styles/Profile.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "blue" }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "blue" }}
+      onClick={onClick}
+    />
+  );
+}
 
 export default function Profile() {
 
@@ -23,18 +48,6 @@ export default function Profile() {
 
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const totalRezervari = rezervari.length;
-
-    const handleNext = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === totalRezervari - 1 ? 0 : prevIndex + 1
-        );
-    };
-
-    const handlePrev = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? totalRezervari - 1 : prevIndex - 1
-        );
-    };
 
     const getUserData = async () => {
         try {
@@ -80,30 +93,52 @@ export default function Profile() {
         return null;
     };
 
+    const settings = {
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      nextArrow: <SampleNextArrow />,
+      prevArrow: <SamplePrevArrow />
+    };
+
+    
+
     return (
-        <div className="profile--container">
+      <div className="profile--container">
           <Header />
           <div className="profile--tabs">
-            <div className="profile--tab1">
-              <h1>{user.nume}</h1>
-              <h2>{user.email}</h2>
-              <h3>{user.telefon}</h3>
-            </div>
-            <div className="profile--tab2">
+              <div className="profile--tab1">
+                  <h1>{user.nume}</h1>
+                  <h2>{user.email}</h2>
+                  <h3>{user.telefon}</h3>
+              </div>
+              <div className="profile--tab2">
               <h1>Rezervări</h1>
-              <div className="rezervare-container">
-                <div className="rezervare-wrapper">
-                  {rezervari.map((rezervare, index) => (
-                    <Rezervare key={index} {...rezervare} />
-                  ))}
-                </div>
+              <div className="rezervari-container slick-slider">
+                <Slider {...settings}>  
+                  {rezervari.map((rezervare, index) => {
+                      const { traseu, autocar, cursa } = getCursaDetails(rezervare.CursaID);
+                      return (
+                          <Rezervare
+                              key={index}
+                              orasplecare={traseu.oras_pornire}
+                              orassosire={traseu.oras_sosire}
+                              autocar={autocar.numar_inmatriculare}
+                              status={cursa.status}
+                              ziplecare={cursa.zi_plecare}
+                              oraplecare={cursa.ora_plecare}
+                              orasosire={cursa.ora_sosire}
+                              loc={rezervare.loc}
+                          />
+                      );
+                  })}
+                  </Slider>
               </div>
-              <div className="navigation-buttons">
-                <button onClick={handlePrev}>&lt;</button>
-                <button onClick={handleNext}>&gt;</button>
               </div>
-            </div>
           </div>
-        </div>
-      );
-    }
+          
+      </div>
+  );
+}
