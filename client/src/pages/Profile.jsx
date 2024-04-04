@@ -8,7 +8,7 @@ import "../styles/Profile.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function SampleNextArrow(props) {
+/*function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
@@ -28,7 +28,33 @@ function SamplePrevArrow(props) {
       onClick={onClick}
     />
   );
-}
+}*/
+
+function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", color: "blue", fontSize: "24px" }}
+        onClick={onClick}
+      >
+        {'Next'}
+      </div>
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", color: "blue", fontSize: "24px" }}
+        onClick={onClick}
+      >
+        {'Prev'}
+      </div>
+    );
+  }
 
 export default function Profile() {
 
@@ -100,7 +126,8 @@ export default function Profile() {
       slidesToShow: 1,
       slidesToScroll: 1,
       nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />
+      prevArrow: <SamplePrevArrow />,
+      arrows: false
     };
 
     
@@ -115,7 +142,7 @@ export default function Profile() {
                   <h3>{user.telefon}</h3>
               </div>
               <div className="profile--tab2">
-              <h1>Rezervări</h1>
+              <h1 className="profile--tab2--title">Rezervari</h1>
               <div className="rezervari-container slick-slider">
                 <Slider {...settings}>  
                   {rezervari.map((rezervare, index) => {
@@ -138,7 +165,6 @@ export default function Profile() {
               </div>
               </div>
           </div>
-          
       </div>
   );
 }

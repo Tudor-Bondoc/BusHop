@@ -24,7 +24,7 @@ export default function Header() {
         <div className="header--container">
             <div className="navi">
                 <div className="left">
-                    <h1 className="logo">BusHop</h1>
+                    <Link to="/" className="logo">BusHop</Link>
                 </div>
                 <div className="right">
                     {!authState.status && <Link to="/login" className="navi--item">Log in</Link>}

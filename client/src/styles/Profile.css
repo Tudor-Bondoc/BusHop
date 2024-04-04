@@ -22,6 +22,10 @@
     background-color: white;
 }
 
+.profile--tab2--title {
+    text-align: center;
+}
+
 
 .profile--tab1 {
     padding: 10px 20px;
@@ -33,9 +37,30 @@
     transition: all 0.3s ease; /* adăugare tranziție pentru o animație mai fluidă */
     z-index: 3;
     background-color: white;
-    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
 }
 
+.profile--tab1 h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .profile--tab1 h2,
+  .profile--tab1 h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  .profile--tab1 h3 {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #888;
+  }
 
 
 
