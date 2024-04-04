@@ -35,7 +35,7 @@ export default function Home() {
     function onSubmit(values) {
 
         const orasPlecare = values.oras_pornire.toLowerCase();
-        const orasDestinatie = values.oras_destinatie.toLowerCase();
+        const orasDestinatie = values.oras_sosire.toLowerCase();
         let dataPlecare = 0
         if (values.data_plecare!='')
             dataPlecare = format(new Date(values.data_plecare), 'M/d/yyyy');
@@ -92,13 +92,13 @@ export default function Home() {
 
     const validationSchema = Yup.object().shape({
         oras_pornire: Yup.string().required('!'),
-        oras_destinatie: Yup.string().required('!'),
+        oras_sosire: Yup.string().required('!'),
         data_plecare: Yup.date()
     })
 
     const initialValues = {
-        oras_pornire: '',
-        oras_destinatie: '',
+        oras_pornire: 'Cluj',
+        oras_sosire: 'Bucuresti',
         data_plecare: ''
     }
 
@@ -113,21 +113,23 @@ export default function Home() {
                 >
                     <Form>
 
-                        <Field
-                            id = "input--oras--pornire"
-                            name = "oras_pornire"
-                            placeholder = "Oras pornire"
-                            autoComplete = "off"
-                        />
+                        <Field as="select" id="input--oras--pornire" name="oras_pornire" placeholder = "Oras pornire">
+                            {listaTrasee.map(traseu => (
+                                <option key={traseu.id} value={traseu.oras_pornire}>
+                                    {traseu.oras_pornire}
+                                </option>
+                            ))}
+                        </Field>
                         <ErrorMessage name="oras_pornire" component="span" />
-                        
-                        <Field
-                            id = "input--oras--destinatie"
-                            name = "oras_destinatie"
-                            placeholder = "Oras destinatie"
-                            autoComplete = "off"
-                        />
-                        <ErrorMessage name="oras_destinatie" component="span" />
+
+                        <Field as="select" id="input--oras--destinatie" name="oras_sosire" placeholder = "Oras destinatie">
+                            {listaTrasee.map(traseu => (
+                                <option key={traseu.id} value={traseu.oras_sosire}>
+                                    {traseu.oras_sosire}
+                                </option>
+                            ))}
+                        </Field>
+                        <ErrorMessage name="oras_sosire" component="span" />
 
                         <Field
                             type = "date"
@@ -135,7 +137,7 @@ export default function Home() {
                             placeholder = "Data plecare"
                         />
                         <ErrorMessage name="data_plecare" component="span" />
-
+                    
                         <button type="submit" className="home--button">Cauta curse</button>
 
                     </Form>
