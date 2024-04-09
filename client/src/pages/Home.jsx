@@ -15,6 +15,9 @@ export default function Home() {
     const [listaTrasee, setListaTrasee] = React.useState([])
     const [listaAutocare, setListaAutocare] = React.useState([])
 
+    const listaOrasePornire = []
+    const listaOraseSosire = []
+
     //Request catre API pentru lista de curse, trasee si autocare
     React.useEffect(()=> {
 
@@ -102,6 +105,15 @@ export default function Home() {
         data_plecare: ''
     }
 
+    for (const traseu of listaTrasee) {
+        if (!listaOrasePornire.includes(traseu.oras_pornire)) {
+            listaOrasePornire.push(traseu.oras_pornire)
+        }
+        if (!listaOraseSosire.includes(traseu.oras_sosire)) {
+            listaOraseSosire.push(traseu.oras_sosire)
+        }
+    }
+
     return(
         <div className="home--container">
             <Header />
@@ -114,18 +126,18 @@ export default function Home() {
                     <Form>
 
                         <Field as="select" id="input--oras--pornire" name="oras_pornire" placeholder = "Oras pornire">
-                            {listaTrasee.map(traseu => (
-                                <option key={traseu.id} value={traseu.oras_pornire}>
-                                    {traseu.oras_pornire}
+                            {listaOrasePornire.map(oras => (
+                                <option key={oras} value={oras}>
+                                    {oras}
                                 </option>
                             ))}
                         </Field>
                         <ErrorMessage name="oras_pornire" component="span" />
 
                         <Field as="select" id="input--oras--destinatie" name="oras_sosire" placeholder = "Oras destinatie">
-                            {listaTrasee.map(traseu => (
-                                <option key={traseu.id} value={traseu.oras_sosire}>
-                                    {traseu.oras_sosire}
+                            {listaOraseSosire.map(oras => (
+                                <option key={oras} value={oras}>
+                                    {oras}
                                 </option>
                             ))}
                         </Field>
@@ -146,7 +158,11 @@ export default function Home() {
             </div>
 
             {show && <div className="curse--container">
-                        {lista}
+                        {lista && lista.length > 0 ? (
+                            lista
+                        ) : (
+                            <h1 className="curse--negasite">Nu au fost gasite curse</h1>
+                        )}
                      </div>
             }
 
