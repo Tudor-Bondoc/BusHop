@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as Yup from 'yup'
 import Scaun from "../components/Scaun";
+import Header from "../components/Header";
 import { AuthContext } from '../helpers/AuthContext'
 import "../styles/AddRezervare.css"
 
@@ -100,6 +101,10 @@ export default function AddRezervare() {
 
     return(
 
+        <>
+
+        <Header />
+
         <div className="add--rezervare--container">
 
         <div className="form--container--default2 form--modified">
@@ -123,5 +128,7 @@ export default function AddRezervare() {
         </div>
 
         </div>
+
+        </>
     )
 }

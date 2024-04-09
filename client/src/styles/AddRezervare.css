@@ -1,13 +1,14 @@
 .add--rezervare--container {
     padding: 10px;
     position: relative;
-    margin-top: 30px;
+    margin-top: -30px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 800px;
+    z-index: 3;
 }
 
 .form--modified {
