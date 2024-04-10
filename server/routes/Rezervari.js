@@ -50,5 +50,17 @@ router.post("/:id", validateToken, async (req, res) => {
 
 })
 
+//Adauga o rezervare la cursa pentru aplicatia client admin
+router.post("/novalidate/:id", async (req, res) => {
+
+    let rezervare = req.body
+
+    await Rezervari.create(rezervare)
+
+    res.json(rezervare)
+
+})
+
+
 module.exports = router
 

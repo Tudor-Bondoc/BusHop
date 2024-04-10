@@ -73,6 +73,7 @@ export default function AddRezervare() {
                 numar_loc = {numar}
                 onClick = {()=>{handleClick(numar)}}
                 ocupat = {ocupate.includes(numar)}
+                selectat = {numarScaunSelectat === numar}
             />
         )
     })

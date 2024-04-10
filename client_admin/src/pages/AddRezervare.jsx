@@ -48,6 +48,7 @@ export default function AddRezervare() {
                 numar_loc = {numar}
                 onClick = {()=>{handleClick(numar)}}
                 ocupat = {ocupate.includes(numar)}
+                selectat = {numarScaunSelectat === numar}
             />
         )
     })
@@ -67,7 +68,7 @@ export default function AddRezervare() {
 
         const dataActualizata = {...data, loc: numarScaunSelectat, CursaID: id}
 
-        axios.post(`http://localhost:3002/rezervari/${id}`, dataActualizata).then((response)=> {
+        axios.post(`http://localhost:3002/rezervari/novalidate/${id}`, dataActualizata).then((response)=> {
             console.log("IT WORKED")
         })
 
