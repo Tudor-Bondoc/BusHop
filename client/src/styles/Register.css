@@ -64,4 +64,25 @@
     color: #6f9fff;
     margin-bottom: 10px;
   }
+
+  .login--header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .login--header--picture {
+    height: 70px;
+    width: auto;
+  }
+
+  .login--header--title {
+    font-size: 35px;
+    color: #5680e9;
+  }
   
+  Form {
+    margin-top: 0px;
+  }

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom"
 import "../styles/Register.css"
 import { AuthContext } from '../helpers/AuthContext'
+import bus from '../../images/bus.png'
 
 export default function Login() {
 
@@ -35,6 +36,10 @@ export default function Login() {
 
     return(
         <div className="login--page--container">
+            <div className="login--header">
+                <h1 className="login--header--title">BusHop</h1>
+                <img src={bus} alt="" className="login--header--picture" />
+            </div>
             <Link to="/" className="link--form">Home</Link>
             <label>Email</label>
             <input 

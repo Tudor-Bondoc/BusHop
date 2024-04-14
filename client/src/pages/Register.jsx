@@ -3,6 +3,7 @@ import * as Yup from 'yup'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import { Link } from "react-router-dom"
 import axios from "axios";
+import bus from '../../images/bus.png'
 import "../styles/Register.css"
 
 export default function Register() {
@@ -29,6 +30,10 @@ export default function Register() {
 
     return(
         <div className="login--page--container">
+            <div className="login--header">
+                <h1 className="login--header--title">BusHop</h1>
+                <img src={bus} alt="" className="login--header--picture" />
+            </div>
             <Formik
                 initialValues={initialValues}
                 onSubmit={onSubmit}
