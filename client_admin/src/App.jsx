@@ -12,6 +12,7 @@ import AddCursa from "./pages/AddCursa";
 import CurseRezervari from "./pages/CurseRezervari";
 import CursaPage from "./pages/CursaPage";
 import AddRezervare from "./pages/AddRezervare";
+import EditCursa from "./pages/EditCursa";
 
 export default function App() {
   return(
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/adaugare_cursa" element={<AddCursa />} />
           <Route path="/curse/:id" element={<CursaPage />} />
           <Route path="/adaugare_rezervare/:id" element={<AddRezervare />} />
+          <Route path="/edit/:id" element={<EditCursa />} />
         </Routes>
       </Router>
     </div>
