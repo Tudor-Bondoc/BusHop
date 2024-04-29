@@ -1,0 +1,47 @@
+
+.cautare--curse {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.form--select {
+    margin: 15px 10px;
+    border: 1px solid #1a1d61; /* Bordură de culoare */
+    border-radius: 5px; /* Rotunjirea colțurilor pentru câmpurile de input */
+    background-color: #fff; /* Fond alb pentru câmpuri */
+    color: #1a1d61; /* Culoarea textului pentru câmpuri */
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.home--button {
+    display: block;
+    margin: 50px auto;
+    background-color: #1a1d61; /* Culoarea de fundal pentru buton */
+    color: #fff; /* Culoarea textului pentru buton */
+    padding: 10px 20px; /* Spațiere între text și margine */
+    border: none; /* Fără bordură */
+    border-radius: 5px; /* Rotunjirea colțurilor pentru buton */
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+}
+
+.home--button:hover {
+    background-color: #0d0f30; /* Culoarea de fundal a butonului la survol */
+}
+
+.curse--negasite {
+    text-align: center;
+    margin-top: 30px;
+    color: red;
+}

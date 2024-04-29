@@ -1,4 +1,4 @@
 1) feature pentru oras inceput rezervare si oras final rezervare
 2) rezervare pentru mai multe locuri
-3*) adaugare filtrare curse dupa traseu
 4) Stocare web token in cookies in loc de session storage pentru securitate sporita
+5*) Feature stergere curse expirate de catre admini
