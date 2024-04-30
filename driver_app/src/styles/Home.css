@@ -1,0 +1,32 @@
+
+.cautare--curse--form {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+
+.form--select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .home--button {
+    background-color: #527a83;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .home--button:hover {
+    background-color: white;
+    color: #527a83;
+  }

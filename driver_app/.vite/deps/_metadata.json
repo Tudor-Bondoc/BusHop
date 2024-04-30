@@ -1,25 +1,52 @@
 {
-  "hash": "3304dc4f",
+  "hash": "9c4d939e",
   "configHash": "6aa664c2",
-  "lockfileHash": "9f546027",
-  "browserHash": "12d7671b",
+  "lockfileHash": "46086280",
+  "browserHash": "4a529407",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "6abf94e6",
+      "fileHash": "29f6436b",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "999dfdea",
+      "fileHash": "b45698b5",
       "needsInterop": true
+    },
+    "formik": {
+      "src": "../../node_modules/formik/dist/formik.esm.js",
+      "file": "formik.js",
+      "fileHash": "e380343c",
+      "needsInterop": false
+    },
+    "yup": {
+      "src": "../../node_modules/yup/index.esm.js",
+      "file": "yup.js",
+      "fileHash": "995c7319",
+      "needsInterop": false
+    },
+    "date-fns": {
+      "src": "../../node_modules/date-fns/index.mjs",
+      "file": "date-fns.js",
+      "fileHash": "00c4cd85",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "a5d3c96b",
+      "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-HVDBGF3A": {
-      "file": "chunk-HVDBGF3A.js"
+    "chunk-BM6B6MNN": {
+      "file": "chunk-BM6B6MNN.js"
+    },
+    "chunk-UV5CTPV7": {
+      "file": "chunk-UV5CTPV7.js"
     }
   }
 }
