@@ -1,5 +1,6 @@
 //Utils
 import React from "react";
+import { useNavigate } from "react-router-dom";
 //Pictures
 import Road from "../../images/road2.png"
 import Bus from "../../images/busicon2.png"
@@ -12,9 +13,10 @@ import "../styles/Cursa.css"
 export default function Cursa(props) {
 
     const ziPlecare = new Date(props.ziplecare).toLocaleDateString();
+    let navigate = useNavigate()
 
     return(
-        <div className="cursa--container">
+        <div className="cursa--container" onClick={()=>{navigate(`/cursa/${props.id}`)}}>
 
             <div className="cursa--row">
                 <img src={Road} alt="" className="row--image" />

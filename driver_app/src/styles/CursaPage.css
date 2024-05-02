@@ -1,0 +1,22 @@
+
+.cursapage--container {
+    position: relative;;
+}
+
+.buton--start {
+    width: 150px;
+    display: block;
+    margin: 20px auto;
+    background-color: #527a83;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buton--start:hover {
+    background-color: white;
+    color: #527a83;
+  }
