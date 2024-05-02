@@ -24,7 +24,7 @@ export default function CursaPage() {
         axios.get("http://localhost:3002/autocare").then((response)=> {
             setListaAutocare(response.data)
         })
-    })
+    }, [])
 
     const traseuSelectat = listaTrasee.find(traseu => traseu.id === cursaDetails.TraseuID)
     if (!traseuSelectat) {
