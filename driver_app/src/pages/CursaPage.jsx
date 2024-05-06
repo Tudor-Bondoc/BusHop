@@ -17,6 +17,7 @@ export default function CursaPage() {
     React.useEffect(()=>{
         axios.get(`http://localhost:3002/curse/${id}`).then((response)=> {
             setCursaDetails(response.data)
+            
         })
         axios.get("http://localhost:3002/trasee").then((response)=> {
             setListaTrasee(response.data)
@@ -24,7 +25,7 @@ export default function CursaPage() {
         axios.get("http://localhost:3002/autocare").then((response)=> {
             setListaAutocare(response.data)
         })
-    }, [])
+    }, [id])
 
     const traseuSelectat = listaTrasee.find(traseu => traseu.id === cursaDetails.TraseuID)
     if (!traseuSelectat) {
@@ -36,25 +37,27 @@ export default function CursaPage() {
         return <p>Autocarul nu a fost găsit încă.</p>;
     }
 
-    async function startCursa() {
-        let newCursaDetails = {...cursaDetails, status: "in desfasurare"}
+
+    async function updateCursaDetails(newCursaDetails) {
         try {
-            await axios.put(`http://localhost:3002/curse/${id}`, newCursaDetails)
-            window.location.reload()
+            await axios.put(`http://localhost:3002/curse/${id}`, newCursaDetails);
+            setCursaDetails(newCursaDetails);
         } catch (error) {
             console.error("Eroare la actualizarea cursei:", error);
         }
     }
 
-    async function stopCursa() {
-        let newCursaDetails = {...cursaDetails, status: "finalizata"}
-        try {
-            await axios.put(`http://localhost:3002/curse/${id}`, newCursaDetails)
-            window.location.reload()
-        } catch (error) {
-            console.error("Eroare la actualizarea cursei:", error);
-        }
+    async function startCursa() {
+        let newCursaDetails = { ...cursaDetails, status: "in desfasurare" };
+        await updateCursaDetails(newCursaDetails);
     }
+
+    async function stopCursa() {
+        let newCursaDetails = { ...cursaDetails, status: "finalizata" };
+        await updateCursaDetails(newCursaDetails);
+    }
+
+    console.log("Status cursa:", JSON.stringify(cursaDetails.status));
 
     return(
         <div className="cursapage--container">
@@ -68,8 +71,19 @@ export default function CursaPage() {
                 orasosire = {cursaDetails.ora_sosire}
                 status = {cursaDetails.status}
             />
-            <button onClick={startCursa} className="buton--start">Start cursa</button>
-            <button onClick={stopCursa} className="buton--start">Finalizare cursa</button>
+            {cursaDetails.status.trim() === "neinitiata" && (
+                <button onClick={startCursa} className="buton--start">
+                    Start cursa
+                </button>
+            )}
+
+            {cursaDetails.status.trim() === "in desfasurare" && (
+                <button onClick={stopCursa} className="buton--start">
+                    Finalizare cursa
+                </button>
+            )}
+
+            
         </div>
     )
 }

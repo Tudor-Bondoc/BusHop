@@ -23,7 +23,7 @@ export default function AddCursa() {
 
     const handleSubmit = async(data) => {
 
-        const dataActualizata = { ...data, status: "neinitiata "}
+        const dataActualizata = { ...data, status: "neinitiata"}
 
         try {
             await axios.post("http://localhost:3002/curse", dataActualizata)
