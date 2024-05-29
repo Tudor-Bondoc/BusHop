@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Rezervare from "../components/Rezervare"
 import { AuthContext } from '../helpers/AuthContext';
@@ -108,8 +109,7 @@ export default function Profile() {
       arrows: false
     };
 
-    
-
+  
     return (
       <div className="profile--container">
           <Header />
@@ -128,6 +128,7 @@ export default function Profile() {
                       return (
                           <Rezervare
                               key={index}
+                              idCursa={rezervare.CursaID}
                               orasplecare={traseu.oras_pornire}
                               orassosire={traseu.oras_sosire}
                               autocar={autocar.numar_inmatriculare}

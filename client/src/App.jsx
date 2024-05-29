@@ -8,6 +8,7 @@ import { AuthContext } from '../src/helpers/AuthContext'
 import Header from "./components/Header";
 import axios from "axios";
 import Profile from "./pages/Profile";
+import TrackCursa from "./pages/TrackCursa";
 
 export default function App() {
 
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/adaugare_rezervare/:id" element={<AddRezervare />} />
+          <Route path="/urmarire_cursa/:id" element={<TrackCursa />} />
           <Route path="/profile" element={<Profile />}/>
         </Routes>
       </Router>
