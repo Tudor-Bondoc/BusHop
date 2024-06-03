@@ -9,8 +9,6 @@ app.use(express.json())
 app.use(cors({
     origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'], // Origini permise
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Metode permise
-    /*allowedHeaders: ["Content-Type", "Authorization"], // Header-e permise
-    credentials: true // Permite trimiterea cookie-urilor și a altor informații de autentificare*/
 }));
 
 const db = require("./models")
@@ -36,8 +34,6 @@ const io = new Server(server, {
     cors: {
         origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'], // Origini permise
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Metode permise
-        /*allowedHeaders: ["Content-Type", "Authorization"], // Header-e permise
-        credentials: true // Permite trimiterea cookie-urilor și a altor informații de autentificare*/
     }
 });
 
