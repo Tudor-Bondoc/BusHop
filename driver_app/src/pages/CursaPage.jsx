@@ -14,6 +14,7 @@ export default function CursaPage() {
     const [cursaDetails, setCursaDetails] = React.useState({});
     const [listaTrasee, setListaTrasee] = React.useState([]);
     const [listaAutocare, setListaAutocare] = React.useState([]);
+    const [isStopped, setIsStopped] = React.useState(false)
 
     React.useEffect(() => {
         axios.get(`http://localhost:3002/curse/${id}`).then((response) => {
@@ -46,7 +47,7 @@ export default function CursaPage() {
         }
     }
 
-    async function startCursa() {
+    /*async function startCursa() {
         let newCursaDetails = { ...cursaDetails, status: 'in desfasurare' };
         await updateCursaDetails(newCursaDetails);
         socket.emit('start-cursa', { id });
@@ -61,6 +62,66 @@ export default function CursaPage() {
         let newCursaDetails = { ...cursaDetails, status: 'finalizata' };
         await updateCursaDetails(newCursaDetails);
         socket.emit('stop-cursa', { id });
+    }*/
+
+    let positionInterval;
+    let isCursaActive = false;
+
+    /*async function startCursa() {
+        let newCursaDetails = { ...cursaDetails, status: 'in desfasurare' };
+        await updateCursaDetails(newCursaDetails);
+        socket.emit('start-cursa', { id });
+
+        isCursaActive = true;
+
+        positionInterval = setInterval(() => {
+            if (!isCursaActive) {
+                clearInterval(positionInterval);
+                return;
+            }
+            navigator.geolocation.getCurrentPosition((position) => {
+                const { latitude, longitude } = position.coords;
+                const timp = new Date().toISOString();
+                socket.emit('update-coordonate', { id, latitudine: latitude, longitudine: longitude, timp });
+            });
+        }, 15000); // Interval de 15 secunde
+    }*/
+
+    async function startCursa() {
+        let newCursaDetails = { ...cursaDetails, status: 'in desfasurare' };
+        await updateCursaDetails(newCursaDetails);
+        socket.emit('start-cursa', { id });
+    
+        isCursaActive = true;
+    
+        positionInterval = navigator.geolocation.watchPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                const timp = new Date().toISOString();
+                if (!isStopped) {
+                    socket.emit('update-coordonate', { id, latitudine: latitude, longitudine: longitude, timp });
+                    console.log('Soferul a trimis locatia la timpul ', timp)
+                }
+            },
+            (error) => {
+                console.error('Eroare la obținerea poziției:', error);
+                // Oprirea intervalului și setarea variabilei isCursaActive la false în caz de eroare
+                isCursaActive = false;
+                clearInterval(positionInterval);
+            },
+            { timeout: 15000 } // Specificarea unui timeout pentru a asigura că se încetează încercările de a obține poziția după un anumit timp
+        );
+    }
+
+    async function stopCursa() {
+        let newCursaDetails = { ...cursaDetails, status: 'finalizata' };
+        await updateCursaDetails(newCursaDetails);
+        setIsStopped(true)
+        socket.emit('stop-cursa', { id });
+
+        // Setăm flag-ul isCursaActive la false și oprim intervalul
+        isCursaActive = false;
+        clearInterval(positionInterval);
     }
 
     console.log('Status cursa:', JSON.stringify(cursaDetails.status));

@@ -41,16 +41,23 @@ const io = new Server(server, {
 io.on('connection', (socket) => {
     console.log('Un client s-a conectat:', socket.id);
 
+    socket.on('join-cursa', (data) => {
+        const { id } = data;
+        socket.join(`cursa-${id}`);
+        console.log(`Clientul ${socket.id} s-a alăturat cursei ${id}`);
+    });
+
     socket.on('start-cursa', (data) => {
         const { id } = data;
         socket.join(`cursa-${id}`);
+        io.to(`cursa-${id}`).emit('cursa-started', { id });
     });
 
     socket.on('update-coordonate', async (data) => {
         const { id, latitudine, longitudine, timp } = data;
 
         // Salvăm coordonatele în baza de date
-        await db.Coordonate.create({ CursaID: id, latitudine, longitudine, timp });
+        //await db.Coordonate.create({ CursaID: id, latitudine, longitudine, timp });
 
         // Trimitem coordonatele către toți clienții conectați la această cursă
         io.to(`cursa-${id}`).emit('new-coordonate', { latitudine, longitudine, timp });
@@ -58,6 +65,7 @@ io.on('connection', (socket) => {
 
     socket.on('stop-cursa', (data) => {
         const { id } = data;
+        io.to(`cursa-${id}`).emit('cursa-stopped', { id });
         socket.leave(`cursa-${id}`);
     });
 
