@@ -5,6 +5,8 @@ const http = require('http');
 const { Server } = require('socket.io');
 
 app.use(express.json())
+
+
 // Configurare CORS pentru Express
 app.use(cors({
     origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'], // Origini permise
@@ -55,10 +57,6 @@ io.on('connection', (socket) => {
 
     socket.on('update-coordonate', async (data) => {
         const { id, latitudine, longitudine, timp } = data;
-
-        // Salvăm coordonatele în baza de date
-        //await db.Coordonate.create({ CursaID: id, latitudine, longitudine, timp });
-
         // Trimitem coordonatele către toți clienții conectați la această cursă
         io.to(`cursa-${id}`).emit('new-coordonate', { latitudine, longitudine, timp });
     });
