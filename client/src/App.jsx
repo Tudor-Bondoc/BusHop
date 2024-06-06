@@ -15,6 +15,7 @@ export default function App() {
   const [authState, setAuthState] = React.useState({
     nume: "",
     id: 0,
+    email: "",
     status: false
   })
 
@@ -34,6 +35,7 @@ export default function App() {
         setAuthState({
           nume: response.data.nume,
           id: response.data.id,
+          email: response.data.email,
           status: true
         })
       }

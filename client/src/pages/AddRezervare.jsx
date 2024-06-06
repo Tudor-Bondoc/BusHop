@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import * as Yup from 'yup'
 import Scaun from "../components/Scaun";
 import Header from "../components/Header";
 import { AuthContext } from '../helpers/AuthContext'

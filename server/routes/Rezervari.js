@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { Rezervari } = require("../models")
 const {validateToken} = require('../middlewares/AuthMiddleware')
+const { sendConfirmationEmail } = require('../services/emailService')
 
 //Afiseaza toate rezervarile specifice unei curse
 router.get("/:id", async (req, res) => {
@@ -45,6 +46,14 @@ router.post("/:id", validateToken, async (req, res) => {
     }
 
     await Rezervari.create(rezervare)
+
+    // Trimitere email de confirmare
+    sendConfirmationEmail(req.pasager.email, {
+        loc: rezervare.loc,
+        CursaID: rezervare.CursaID,
+        nume: req.pasager.nume,
+        email: req.pasager.email
+    });
 
     res.json(rezervare)
 

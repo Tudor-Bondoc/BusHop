@@ -27,6 +27,7 @@ export default function Login() {
                 setAuthState({
                     nume: response.data.nume,
                     id: response.data.id,
+                    email: response.data.email,
                     status: true
                 })
                 navigate("/")

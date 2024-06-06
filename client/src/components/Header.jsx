@@ -15,6 +15,7 @@ export default function Header() {
         setAuthState({
             nume: "",
             id: 0,
+            email: "",
             status: false
         })
         navigate("/")
