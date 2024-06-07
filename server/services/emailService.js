@@ -2,19 +2,16 @@
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.mail.yahoo.com',
-    port: 587,
-    service: 'yahoo',
-    secure: false, 
+    service: 'gmail', 
     auth: {
-        user: 'bushopservice@yahoo.com',
-        pass: 'Licenta123#'
+        user: 'bushopservice@gmail.com',
+        pass: 'ithg emyr rxgy hhxa'
     }
 });
 
 const sendConfirmationEmail = (to, rezervareDetails) => {
     const mailOptions = {
-        from: 'bushopservice@yahoo.com',
+        from: 'bushopservice@gmail.com',
         to: to,
         subject: 'Confirmare Rezervare',
         text: `Salut, Rezervarea ta a fost confirmată. Detalii: ${JSON.stringify(rezervareDetails)}`
