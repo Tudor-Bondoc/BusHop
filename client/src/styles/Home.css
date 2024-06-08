@@ -87,7 +87,7 @@ span {
     position: relative;
     margin: 30px auto;
     width: 1200px;
-    margin-bottom: 200px;
+    margin-bottom: 40px;
 
 }
 
@@ -99,8 +99,20 @@ span {
 .curse--populare--top {
     width: 100%;
     height: 400px;
-    background-image: url('../../images/home.jpg');
-    background-size: contain;
+    background-image: url("../../images/home.jpg");
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     margin-top: 40px;
+    margin-bottom: 40px;
+    padding-top: 80px;
+    opacity: 70%;
+}
+
+.curse--populare--title {
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    opacity: 100%;
 }

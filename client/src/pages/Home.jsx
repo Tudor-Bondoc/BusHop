@@ -171,7 +171,7 @@ export default function Home() {
                 }
 
                 <div className="curse--populare--top">
-
+                    <h1 className="curse--populare--title">CURSE POPULARE</h1>
                 </div>
 
                 </div>
