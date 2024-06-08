@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom"
 import "../styles/Header.css"
 import { AuthContext } from '../helpers/AuthContext'
-import accountPick from '../../images/accountj2.png'
+import accountPick from '../../images/accountj3.png'
+import Autobuz from '../../images/autobuz2.png'
 
 export default function Header() {
 
@@ -40,6 +41,7 @@ export default function Header() {
                     }
                 </div>
             </div>
+            {/*<img src={Autobuz} className="bus--picture" alt="" />*/}
         </div>
     )
 }

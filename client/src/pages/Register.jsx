@@ -29,7 +29,7 @@ export default function Register() {
     }
 
     return(
-        <div className="login--page--container">
+        <div className="login--page--container login--page--container2">
             <div className="login--header">
                 <h1 className="login--header--title">BusHop</h1>
                 <img src={bus} alt="" className="login--header--picture" />

@@ -9,8 +9,24 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 100px;
     position: relative;
+    background: rgba(154, 189, 224, 0.1);
+    backdrop-filter: blur(60px);
   }
   
+  .login--page--container2 {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    position: relative;
+    background: rgba(154, 189, 224, 0.1);
+    backdrop-filter: blur(60px);
+  }
+
   .login--page--container label {
     display: block;
     margin-bottom: 5px;

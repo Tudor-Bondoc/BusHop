@@ -116,55 +116,65 @@ export default function Home() {
 
     return(
         <div className="home--container">
+
             <Header />
-            <div className="cautare--curse">
-                <Formik
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={onSubmit}
-                >
-                    <Form>
 
-                        <Field as="select" id="input--oras--pornire" name="oras_pornire" placeholder = "Oras pornire">
-                            {listaOrasePornire.map(oras => (
-                                <option key={oras} value={oras}>
-                                    {oras}
-                                </option>
-                            ))}
-                        </Field>
-                        <ErrorMessage name="oras_pornire" component="span" />
+            <div className="after--header">
 
-                        <Field as="select" id="input--oras--destinatie" name="oras_sosire" placeholder = "Oras destinatie">
-                            {listaOraseSosire.map(oras => (
-                                <option key={oras} value={oras}>
-                                    {oras}
-                                </option>
-                            ))}
-                        </Field>
-                        <ErrorMessage name="oras_sosire" component="span" />
+                <div className="cautare--curse">
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        onSubmit={onSubmit}
+                    >
+                        <Form>
 
-                        <Field
-                            type = "date"
-                            name = "data_plecare"
-                            placeholder = "Data plecare"
-                        />
-                        <ErrorMessage name="data_plecare" component="span" />
-                    
-                        <button type="submit" className="home--button">Cauta curse</button>
+                            <Field as="select" id="input--oras--pornire" name="oras_pornire" placeholder = "Oras pornire">
+                                {listaOrasePornire.map(oras => (
+                                    <option key={oras} value={oras}>
+                                        {oras}
+                                    </option>
+                                ))}
+                            </Field>
+                            <ErrorMessage name="oras_pornire" component="span" />
 
-                    </Form>
+                            <Field as="select" id="input--oras--destinatie" name="oras_sosire" placeholder = "Oras destinatie">
+                                {listaOraseSosire.map(oras => (
+                                    <option key={oras} value={oras}>
+                                        {oras}
+                                    </option>
+                                ))}
+                            </Field>
+                            <ErrorMessage name="oras_sosire" component="span" />
 
-                </Formik>
-            </div>
+                            <Field
+                                type = "date"
+                                name = "data_plecare"
+                                placeholder = "Data plecare"
+                            />
+                            <ErrorMessage name="data_plecare" component="span" />
+                        
+                            <button type="submit" className="home--button">Cauta curse</button>
 
-            {show && <div className="curse--container">
-                        {lista && lista.length > 0 ? (
-                            lista
-                        ) : (
-                            <h1 className="curse--negasite">Nu au fost gasite curse</h1>
-                        )}
-                     </div>
-            }
+                        </Form>
+
+                    </Formik>
+                </div>
+
+                {show && <div className="curse--container">
+                            {lista && lista.length > 0 ? (
+                                lista
+                            ) : (
+                                <h1 className="curse--negasite">Nu au fost gasite curse</h1>
+                            )}
+                        </div>
+                }
+
+                <div className="curse--populare--top">
+
+                </div>
+
+                </div>
 
         </div>
     )
