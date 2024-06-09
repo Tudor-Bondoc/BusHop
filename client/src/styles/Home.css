@@ -138,7 +138,7 @@ span {
     margin-top: 40px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 550px;
+    min-height: 400px;
 }
 
 .home--about--text--container {
@@ -187,8 +187,8 @@ span {
 .home--footer {
     position: relative;
     z-index: 1;
-    background-color: white;
-    color: #005a9d;
+    background-color: #005a9d;
+    color: white;
     text-align: center;
     padding: 20px 0;
     margin-top: 0px;

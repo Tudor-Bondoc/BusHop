@@ -25,6 +25,23 @@ const sendConfirmationEmail = (to, rezervareDetails) => {
     });
 };
 
+const sendContactEmail = (username, email, text) => {
+    const mailOptions = {
+        from: 'bushopservice@gmail.com',
+        to: 'bushopservice@gmail.com',
+        subject: `New request from ${username}`,
+        text: `${email} wrote: ${text}`
+    }
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Email trimis: ' + info.response);
+    });
+}
+
 module.exports = {
-    sendConfirmationEmail
+    sendConfirmationEmail,
+    sendContactEmail
 };

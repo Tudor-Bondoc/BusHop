@@ -3,6 +3,7 @@ const router = express.Router()
 const { Pasageri } = require("../models")
 const bcrypt = require("bcrypt")
 const {validateToken} = require("../middlewares/AuthMiddleware")
+const {sendContactEmail} = require("../services/emailService")
 
 const {sign} = require('jsonwebtoken')
 
@@ -74,6 +75,17 @@ router.post("/login", async(req, res) => {
             }
         })
     }
+})
+
+//Trimitere mail contact
+router.post("/contact", async (req, res) => {
+
+    const { nume, email, text } = req.body
+
+    sendContactEmail(nume, email, text)
+
+    res.json("Mail trimis")
+
 })
 
 
