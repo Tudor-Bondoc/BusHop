@@ -23,7 +23,7 @@ export default function Curse() {
     //Request catre API pentru lista de curse, trasee si autocare
     React.useEffect(()=> {
 
-        axios.get("http://localhost:3002/curse").then((response)=> {
+        axios.get("http://localhost:3002/curse/neinitiate").then((response)=> {
             setListaCurse(response.data)
         })
 

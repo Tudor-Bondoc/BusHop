@@ -9,6 +9,8 @@
     width: 300px;
     margin-right: auto;
     margin-left: auto;
+    background: rgba(154, 189, 224, 0.1);
+    backdrop-filter: blur(60px);
   }
   
   .rezervare--container:hover {
@@ -19,14 +21,14 @@
   .rezervare--titlu {
     font-size: 24px;
     margin-bottom: 10px;
-    color: #333;
+    color: white;
   }
   
   .rezervare--detalii,
   .rezervare--status {
     font-size: 18px;
     margin-bottom: 5px;
-    color: #666;
+    color: white;
   }
   
   .rezervare--loc {
@@ -36,7 +38,7 @@
   }
   
   .rezervare--status {
-    color: #007bff;
+    color: white;
   }
   
   .rezervare--orar {
@@ -44,7 +46,7 @@
   }
   
   .rezervare--loc {
-    color: #6c757d;
+    color: white;
   }
   
   .rezervare--container:hover {

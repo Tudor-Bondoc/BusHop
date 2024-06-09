@@ -1,10 +1,22 @@
 const express = require('express')
 const router = express.Router()
-const { Curse } = require("../models")
+/*const { Curse } = require("../models")
+const { Rezervari } = require("../models")*/
+const { Curse, Rezervari, sequelize } = require('../models');
 
 //Afiseaza toate cursele
 router.get("/", async (req, res) => {
     const toateCursele = await Curse.findAll()
+    res.json(toateCursele)
+})
+
+//Afiseaza toate cursele care nu au inceput
+router.get("/neinitiate", async (req, res) => {
+    const toateCursele = await Curse.findAll({
+        where: {
+            status: "neinitiata"
+        }
+    })
     res.json(toateCursele)
 })
 

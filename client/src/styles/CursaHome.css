@@ -1,0 +1,51 @@
+.cursa--container2 {
+    width: 200px;
+    height: 150px;
+    border: 1px solid #ccc; /* O bordură subtilă */
+    border-radius: 10px; /* Colțuri rotunjite */
+    padding: 15px; /* Spațiu interior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow pentru adâncime */
+    background-color: #fff; /* Fundal alb */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spațiu egal între elemente */
+    align-items: center; /* Elemente centrate pe orizontală */
+    margin: 10px; /* Spațiu exterior */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Tranziție pentru hover */
+    z-index: 10;
+}
+
+.cursa--container2:hover {
+    transform: translateY(-5px); /* Efect de ridicare la hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow mai mare la hover */
+}
+
+.cursa--traseu2 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #333; /* Culoare text */
+    margin: 0; /* Elimină marginile implicite */
+}
+
+.cursa--ziplecare2 {
+    font-size: 14px;
+    color: #666; /* Culoare text secundar */
+    margin: 5px 0; /* Margină verticală */
+    text-align: center;
+}
+
+.cursa--buton--rezervare {
+    padding: 8px 16px; /* Padding pentru buton */
+    font-size: 14px;
+    color: #fff; /* Culoare text alb */
+    background-color: #007bff; /* Fundal buton albastru */
+    border: none; /* Elimină bordura */
+    border-radius: 5px; /* Colțuri rotunjite */
+    cursor: pointer; /* Cursor pointer */
+    transition: background-color 0.3s ease; /* Tranziție pentru fundal */
+}
+
+.cursa--buton--rezervare:hover {
+    background-color: #0056b3; /* Culoare fundal la hover */
+}

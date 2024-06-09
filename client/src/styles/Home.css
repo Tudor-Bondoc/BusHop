@@ -11,6 +11,10 @@ body {
     background-position: top left;
 }
 
+.after--header {
+    position: relative;
+}
+
 .cautare--curse {
     position: relative;
     background-color: white;
@@ -104,7 +108,6 @@ span {
     background-position: center;
     background-size: cover;
     margin-top: 40px;
-    margin-bottom: 40px;
     padding-top: 80px;
     opacity: 70%;
 }
@@ -115,4 +118,79 @@ span {
     font-weight: bold;
     color: white;
     opacity: 100%;
+}
+
+.curse--populare {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.home--about {
+    width: 100%;
+    background-color: #005a9d;
+    color: white;
+    margin-top: 40px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 550px;
+}
+
+.home--about--text--container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.home--about--title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.home--about--text--container p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.home--about--text--container p:last-child {
+    font-weight: bold;
+    text-align: center;
+}
+
+.custom-shape-divider-bottom-1717929337 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1717929337 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-bottom-1717929337 .shape-fill {
+    fill: #FFFFFF;
+}
+
+.home--footer {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    color: #005a9d;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 0px;
+    height: 80px;
 }

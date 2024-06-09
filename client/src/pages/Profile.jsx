@@ -69,7 +69,7 @@ export default function Profile() {
 
         getUserData()
 
-        axios.get(`http://localhost:3002/rezervari/byuser/${user.nume}`).then((response)=>{
+        axios.get(`http://localhost:3002/rezervari/byuser/active/${user.nume}`).then((response)=>{
             setRezervari(response.data)
         })
 
