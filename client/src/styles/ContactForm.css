@@ -1,9 +1,13 @@
 .contact--form--container {
     background-color: white;
-    min-height: 400px;
+    min-height: 350px;
     padding: 40px 20px;
     margin: 0 auto;
-    width: 100%
+    width: 100%;
+    position: relative;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    margin-top: -300px;
 }
 
 .contact--form--info {
@@ -21,10 +25,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    border: 1px solid #005a9d;
+    border: 3px solid #005a9d;
     border-radius: 10px;
     padding: 20px;
-    background-color: #f9f9f9;
+    /*background-color: #f9f9f9;*/
+    background-color: white;
 }
 
 .contact--form--label {
@@ -69,4 +74,29 @@
     font-size: 0.8em;
     margin-bottom: 10px;
     align-self: flex-start;
+}
+
+.custom-shape-divider-top-1717949562 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1717949562 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 374px;
+}
+
+.custom-shape-divider-top-1717949562 .shape-fill {
+    fill: #FFFFFF;
+}
+
+.blue--wrapper {
+    background-color: #005a9d;
 }
