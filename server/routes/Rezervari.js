@@ -3,6 +3,7 @@ const router = express.Router()
 const { Rezervari, Curse } = require("../models")
 const {validateToken} = require('../middlewares/AuthMiddleware')
 const { sendConfirmationEmail } = require('../services/emailService')
+const { Op } = require("sequelize");
 
 //Afiseaza toate rezervarile specifice unei curse
 router.get("/:id", async (req, res) => {
@@ -35,11 +36,10 @@ router.get("/byuser/:name", async (req, res) => {
 })
 
 //Afiseaza rezervarile active ale unui pasager
-router.get("/byuser/active/:name", async (req, res) => {
+/*router.get("/byuser/active/:name", async (req, res) => {
     const { name } = req.params;
 
     try {
-        // Folosește o interogare JOIN pentru a obține rezervările care au curse neînțiate
         const rezervariNeinitiate = await Rezervari.findAll({
             where: {
                 nume: name
@@ -54,6 +54,32 @@ router.get("/byuser/active/:name", async (req, res) => {
         });
 
         res.json(rezervariNeinitiate);
+    } catch (error) {
+        console.error("Eroare în obținerea rezervărilor:", error);
+        res.status(500).json({ error: "Eroare în obținerea rezervărilor" });
+    }
+});*/
+
+router.get("/byuser/active/:name", async (req, res) => {
+    const { name } = req.params;
+
+    try {
+        const rezervariActive = await Rezervari.findAll({
+            where: {
+                nume: name
+            },
+            include: [{
+                model: Curse,
+                as: 'cursa',
+                where: {
+                    status: {
+                        [Op.or]: ['neinitiata', 'in desfasurare']
+                    }
+                }
+            }]
+        });
+
+        res.json(rezervariActive);
     } catch (error) {
         console.error("Eroare în obținerea rezervărilor:", error);
         res.status(500).json({ error: "Eroare în obținerea rezervărilor" });
