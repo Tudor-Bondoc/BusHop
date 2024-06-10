@@ -8,11 +8,15 @@ export default function AddCursa() {
 
     const [listaTrasee, setListaTrasee] = React.useState([])
     const [listaAutocare, setListaAutocare] = React.useState([])
+    const [listaSoferi, setListaSoferi] = React.useState([])
 
     //Request catre API pentru lista de trasee si autocare
     React.useEffect(()=> {
         axios.get("http://localhost:3002/trasee").then((response)=> {
             setListaTrasee(response.data)
+        })
+        axios.get("http://localhost:3002/soferi").then((response)=> {
+            setListaSoferi(response.data)
         })
         axios.get("http://localhost:3002/autocare").then((response)=> {
             setListaAutocare(response.data)
@@ -41,7 +45,8 @@ export default function AddCursa() {
                     ora_plecare: "",
                     ora_sosire: "",
                     TraseuID: 1,
-                    AutocarID: 1 
+                    AutocarID: 1,
+                    SoferID: 1
                   }}
                   onSubmit={handleSubmit}
             >
@@ -69,6 +74,15 @@ export default function AddCursa() {
                     {listaAutocare.map(autocar => (
                         <option key={autocar.id} value={autocar.id}>
                             {autocar.numar_inmatriculare}
+                        </option>
+                    ))}
+                    </Field>
+
+                    <label htmlFor="SoferID">Sofer</label>
+                    <Field as="select" id="SoferID" name="SoferID">
+                    {listaSoferi.map(sofer => (
+                        <option key={sofer.id} value={sofer.id}>
+                            {sofer.nume}
                         </option>
                     ))}
                     </Field>

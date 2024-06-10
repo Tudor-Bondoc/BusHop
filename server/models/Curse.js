@@ -27,6 +27,11 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'TraseuID',
             onDelete: "NO ACTION"
         });
+        Curse.belongsTo(models.Soferi, {
+            as: 'sofer',
+            foreignKey: 'SoferID',
+            onDelete: "NO ACTION"
+        });
         Curse.belongsTo(models.Autocare, {
             as: 'autocar',
             foreignKey: 'AutocarID',

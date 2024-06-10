@@ -12,6 +12,7 @@ export default function Curse() {
 
     const [listaCurse, setListaCurse] = React.useState([])
     const [listaTrasee, setListaTrasee] = React.useState([])
+    const [listaSoferi, setListaSoferi] = React.useState([])
     const [listaAutocare, setListaAutocare] = React.useState([])
     const [listaCurseFiltrata, setListaCurseFiltrata] = React.useState([])
 
@@ -29,6 +30,10 @@ export default function Curse() {
 
         axios.get("http://localhost:3002/trasee").then((response)=> {
             setListaTrasee(response.data)
+        })
+
+        axios.get("http://localhost:3002/soferi").then((response)=> {
+            setListaSoferi(response.data)
         })
 
         axios.get("http://localhost:3002/autocare").then((response)=> {
@@ -80,6 +85,11 @@ export default function Curse() {
             return <p key={key}>Autocarul nu a fost găsit încă.</p>;
         }
 
+        const soferSelectat = listaSoferi.find(sofer => sofer.id === value.SoferID)
+        if (!soferSelectat) {
+            return <p key={key}>Soferul nu a fost găsit încă.</p>;
+        }
+
         return(
             <Cursa
                 id = {value.id}
@@ -91,6 +101,7 @@ export default function Curse() {
                 orassosire = {traseuSelectat.oras_sosire}
                 autocar = {autocarSelectat.numar_inmatriculare}
                 status = {value.status} 
+                sofer = {soferSelectat.nume}
             />
         )
     })

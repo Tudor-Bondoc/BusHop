@@ -1,15 +1,19 @@
 //Utils
 import React from "react";
+import { useNavigate } from "react-router-dom"
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import { format } from 'date-fns'
 import axios from 'axios'
+import { AuthContext } from '../helpers/AuthContext';
 //Components
 import Cursa from "../components/Cursa"
 //Styles
 import "../styles/Home.css"
 
 export default function Home() {
+
+    const { authState, setAuthState } = React.useContext(AuthContext);
 
     const [listaCurse, setListaCurse] = React.useState([])
     const [listaTrasee, setListaTrasee] = React.useState([])
@@ -21,10 +25,12 @@ export default function Home() {
     const listaOrasePornire = []
     const listaOraseSosire = []
 
+    let navigate = useNavigate()
+
     //Request catre API pentru lista de curse, trasee si autocare
     React.useEffect(()=> {
 
-        axios.get("http://localhost:3002/curse").then((response)=> {
+        axios.get(`http://localhost:3002/curse/bydriver/${authState.id}`).then((response)=> {
             setListaCurse(response.data)
         })
 
@@ -116,8 +122,21 @@ export default function Home() {
         }
     }
 
+    const logout = () => {
+        sessionStorage.removeItem("accessToken")
+        setAuthState({
+            nume: "",
+            id: 0,
+            email: "",
+            status: false
+        })
+        navigate("/")
+    }
+
     return(
         <div>
+            <h1 className="home--salut">Salut, {authState.nume}!</h1>
+            <button onClick={logout}>Logout</button>
             <div className="cautare--curse">
                 <Formik
                     initialValues={initialValues}

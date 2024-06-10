@@ -1,0 +1,90 @@
+/* Container general */
+.login--page--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #527a83;
+    padding: 20px;
+}
+
+/* Header */
+.login--header {
+    margin-bottom: 20px;
+}
+
+.login--header--title {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Form */
+.login--form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login--label {
+    margin-bottom: 5px;
+    color: #527a83;
+    font-weight: bold;
+}
+
+.login--input {
+    padding: 10px;
+    border: 1px solid #527a83;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login--error {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/* Linkuri */
+.link--form {
+    color: #527a83;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.link--form:hover {
+    text-decoration: underline;
+}
+
+/* Mesajul deja inregistrat */
+.already--registered {
+    margin: 10px 0;
+    color: #527a83;
+    text-align: center;
+}
+
+/* Butonul de inregistrare */
+.buton--signup {
+    background-color: #527a83;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.buton--signup:hover {
+    background-color: #40666c;
+}

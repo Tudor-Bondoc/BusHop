@@ -16,7 +16,6 @@ export default function Home() {
     const [listaCurseFiltrata, setListaCurseFiltrata] = React.useState([])
     const [listaTrasee, setListaTrasee] = React.useState([])
     const [listaAutocare, setListaAutocare] = React.useState([])
-    const [listaNumarRezervari, setListaNumarRezervari] = React.useState([])
     const [top3Curse, setTop3Curse] = React.useState([]);
 
     const listaOrasePornire = []

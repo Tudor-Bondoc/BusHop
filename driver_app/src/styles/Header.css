@@ -28,3 +28,10 @@
     margin-bottom: 30px;
     box-shadow: 0px 5px 5px #527a83;
 }
+
+.bushop--driver {
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}

@@ -21,12 +21,14 @@ const autocareRouter = require('./routes/Autocare')
 const curseRouter = require('./routes/Curse')
 const rezervariRouter = require('./routes/Rezervari')
 const pasageriRouter = require('./routes/Pasageri')
+const soferiRouter = require('./routes/Soferi')
 
 app.use("/trasee", traseeRouter)
 app.use("/autocare", autocareRouter)
 app.use("/curse", curseRouter)
 app.use("/rezervari", rezervariRouter)
 app.use("/pasageri", pasageriRouter)
+app.use("/soferi", soferiRouter)
 
 // Creare server HTTP
 const server = http.createServer(app);

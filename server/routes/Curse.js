@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-/*const { Curse } = require("../models")
-const { Rezervari } = require("../models")*/
+
 const { Curse, Rezervari, sequelize } = require('../models');
+const { validateToken2 } = require("../middlewares/AuthMiddleware2")
 
 //Afiseaza toate cursele
 router.get("/", async (req, res) => {
@@ -25,6 +25,17 @@ router.get("/:id", async (req, res) => {
     const { id } = req.params
     const cursa = await Curse.findByPk(id)
     res.json(cursa)
+})
+
+//Afiseaza cursele unui sofer
+router.get("/bydriver/:id", async (req, res) => {
+    const { id } = req.params
+    const listaCurse = await Curse.findAll({
+        where: {
+            SoferID: id
+        }
+    })
+    res.json(listaCurse)
 })
 
 //Adauga o cursa

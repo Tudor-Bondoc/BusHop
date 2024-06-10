@@ -8,6 +8,7 @@ export default function EditCursa() {
     const { id } = useParams();
     const [cursaData, setCursaData] = useState(null);
     const [listaTrasee, setListaTrasee] = useState([]);
+    const [listaSoferi, setListaSoferi] = useState([])
     const [listaAutocare, setListaAutocare] = useState([]);
     const navigate = useNavigate();
 
@@ -38,6 +39,15 @@ export default function EditCursa() {
             .catch(error => {
                 console.error("Eroare la aducerea datelor autocarelor:", error);
             });
+
+        // Fetch soferi data
+        axios.get("http://localhost:3002/soferi")
+            .then(response => {
+                setListaSoferi(response.data);
+            })
+            .catch(error => {
+                console.error("Eroare la aducerea datelor soferilor:", error);
+            });
     }, [id]);
 
     // Schema de validare Yup
@@ -46,7 +56,8 @@ export default function EditCursa() {
         ora_plecare: Yup.string().required("Ora plecării este obligatorie."),
         ora_sosire: Yup.string().required("Ora sosirii este obligatorie."),
         TraseuID: Yup.number().required("Traseul este obligatoriu."),
-        AutocarID: Yup.number().required("Autocarul este obligatoriu.")
+        AutocarID: Yup.number().required("Autocarul este obligatoriu."),
+        SoferID: Yup.number().required("Soferul este obligatoriu.")
     });
 
     // Funcție pentru trimiterea datelor către server la submiterea formularului
@@ -69,7 +80,8 @@ export default function EditCursa() {
                         ora_plecare: cursaData.ora_plecare,
                         ora_sosire: cursaData.ora_sosire,
                         TraseuID: cursaData.TraseuID,
-                        AutocarID: cursaData.AutocarID
+                        AutocarID: cursaData.AutocarID,
+                        SoferID: cursaData.SoferID
                     }}
                     validationSchema={validationSchema}
                     onSubmit={handleSubmit}
@@ -98,6 +110,15 @@ export default function EditCursa() {
                             {listaAutocare.map(autocar => (
                                 <option key={autocar.id} value={autocar.id}>
                                     {autocar.numar_inmatriculare}
+                                </option>
+                            ))}
+                        </Field>
+
+                        <label htmlFor="SoferID">Sofer</label>
+                        <Field as="select" id="SoferID" name="SoferID">
+                            {listaSoferi.map(sofer => (
+                                <option key={sofer.id} value={sofer.id}>
+                                    {sofer.nume}
                                 </option>
                             ))}
                         </Field>

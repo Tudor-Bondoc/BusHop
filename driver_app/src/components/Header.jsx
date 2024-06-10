@@ -1,5 +1,6 @@
 //Utils
 import React from "react";
+import { Link } from "react-router-dom"
 //Pictures
 import Bus from "../../images/bus.png"
 //Style
@@ -10,7 +11,7 @@ export default function Header() {
         <>
         <div className="header--container">
             <div className="header--text">
-                <h1>BusHop driver</h1>
+                <Link to="/home" className="bushop--driver">BusHop driver</Link>
                 <h2>Keep the world moving</h2>
             </div>
             <img src={Bus} className="header--picture" alt="" />

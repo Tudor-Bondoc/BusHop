@@ -58,6 +58,8 @@ export default function Cursa(props) {
                 <h1 className="row--text">{props.status}</h1>
             </div>
 
+            <h1 className="sofer--name">Sofer: {props.sofer}</h1>
+
             <img src={Trash} className="trash" onClick={() => handleDeleteCursa(props.id)} />
             <img src={Pencil} className="pencil" onClick={() => handleEditCursa(props.id)} />
             
