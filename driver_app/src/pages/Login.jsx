@@ -2,13 +2,13 @@ import React from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom"
 import "../styles/Register.css"
-import { AuthContext } from '../helpers/AuthContext'
+import { AuthContext2 } from '../helpers/AuthContext'
 
 export default function Login() {
 
     const [email, setEmail] = React.useState("")
     const [parola, setParola] = React.useState("")
-    const {authState, setAuthState} = React.useContext(AuthContext)
+    const {authState2, setAuthState2} = React.useContext(AuthContext2)
 
     let navigate = useNavigate()
 
@@ -23,7 +23,7 @@ export default function Login() {
             }
             else {
                 sessionStorage.setItem("accessToken", response.data.token)
-                setAuthState({
+                setAuthState2({
                     nume: response.data.nume,
                     id: response.data.id,
                     email: response.data.email,

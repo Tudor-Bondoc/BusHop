@@ -1,7 +1,7 @@
 //Utils
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
-import { AuthContext } from '../src/helpers/AuthContext'
+import { AuthContext2 } from '../src/helpers/AuthContext'
 import axios from "axios";
 //Components
 import Header from "./components/Header";
@@ -12,7 +12,7 @@ import Register from "./pages/Register";
 
 export default function App() {
 
-  const [authState, setAuthState] = React.useState({
+  const [authState2, setAuthState2] = React.useState({
     nume: "",
     id: 0,
     email: "",
@@ -26,13 +26,13 @@ export default function App() {
       }
     }).then((response)=>{
       if(response.data.error){
-        setAuthState({
-          ...authState,
+        setAuthState2({
+          ...authState2,
           status: false
         })
       }
       else {
-        setAuthState({
+        setAuthState2({
           nume: response.data.nume,
           id: response.data.id,
           email: response.data.email,
@@ -44,7 +44,7 @@ export default function App() {
 
   return(
     <div>
-      <AuthContext.Provider value={{authState, setAuthState}}>
+      <AuthContext2.Provider value={{authState2, setAuthState2}}>
       <Router>
         <Header />
         <Routes>
@@ -54,7 +54,7 @@ export default function App() {
           <Route path="/cursa/:id" element={<CursaPage />} />
         </Routes>
       </Router>
-      </AuthContext.Provider>
+      </AuthContext2.Provider>
     </div>
   )
 }

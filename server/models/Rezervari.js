@@ -19,6 +19,12 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'CursaID',
             onDelete: "NO ACTION"
         });
+        Rezervari.belongsTo(models.Pasageri, {
+            foreignKey: 'PasagerID',
+            as: 'pasager',
+            allowNull: true,
+            onDelete: "SET NULL"
+        });
     }
 
     return Rezervari

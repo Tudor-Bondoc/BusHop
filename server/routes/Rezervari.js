@@ -20,7 +20,7 @@ router.get("/:id", async (req, res) => {
 
 })
 
-//Afiseaza toate rezervarile unui pasager
+//Afiseaza toate rezervarile unui pasager dupa nume
 router.get("/byuser/:name", async (req, res) => {
 
     const { name } = req.params
@@ -35,38 +35,31 @@ router.get("/byuser/:name", async (req, res) => {
 
 })
 
+//Afiseaza toate rezervarile unui pasager dupa id
+router.get("/byuserid/:id", async (req, res) => {
+
+    const { id } = req.params
+
+    const toateRezervarile = await Rezervari.findAll({
+        where: {
+            PasagerID: id
+        }
+    })
+
+    res.json(toateRezervarile)
+
+})
+
+
 //Afiseaza rezervarile active ale unui pasager
-/*router.get("/byuser/active/:name", async (req, res) => {
-    const { name } = req.params;
+router.get("/byuserid/active/:id", async (req, res) => {
 
-    try {
-        const rezervariNeinitiate = await Rezervari.findAll({
-            where: {
-                nume: name
-            },
-            include: [{
-                model: Curse,
-                as: 'cursa',
-                where: {
-                    status: 'neinitiata'
-                }
-            }]
-        });
-
-        res.json(rezervariNeinitiate);
-    } catch (error) {
-        console.error("Eroare în obținerea rezervărilor:", error);
-        res.status(500).json({ error: "Eroare în obținerea rezervărilor" });
-    }
-});*/
-
-router.get("/byuser/active/:name", async (req, res) => {
-    const { name } = req.params;
+    const { id } = req.params;
 
     try {
         const rezervariActive = await Rezervari.findAll({
             where: {
-                nume: name
+                PasagerID: id
             },
             include: [{
                 model: Curse,
@@ -88,6 +81,7 @@ router.get("/byuser/active/:name", async (req, res) => {
 
 // Endpoint pentru a obține numărul de rezervări pentru o cursă specifică
 router.get("/numar/:id", async (req, res) => {
+
     const cursaId = req.params.id;
 
     try {
@@ -112,7 +106,8 @@ router.post("/:id", validateToken, async (req, res) => {
     rezervare = 
     { 
         ...rezervare,
-        nume: req.pasager.nume
+        nume: req.pasager.nume,
+        PasagerID: req.pasager.id
     }
 
     await Rezervari.create(rezervare)

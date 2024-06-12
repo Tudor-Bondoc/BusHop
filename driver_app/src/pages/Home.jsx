@@ -5,7 +5,7 @@ import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import { format } from 'date-fns'
 import axios from 'axios'
-import { AuthContext } from '../helpers/AuthContext';
+import { AuthContext2 } from '../helpers/AuthContext';
 //Components
 import Cursa from "../components/Cursa"
 //Styles
@@ -13,7 +13,7 @@ import "../styles/Home.css"
 
 export default function Home() {
 
-    const { authState, setAuthState } = React.useContext(AuthContext);
+    const { authState2, setAuthState2 } = React.useContext(AuthContext2);
 
     const [listaCurse, setListaCurse] = React.useState([])
     const [listaTrasee, setListaTrasee] = React.useState([])
@@ -30,7 +30,7 @@ export default function Home() {
     //Request catre API pentru lista de curse, trasee si autocare
     React.useEffect(()=> {
 
-        axios.get(`http://localhost:3002/curse/bydriver/${authState.id}`).then((response)=> {
+        axios.get(`http://localhost:3002/curse/bydriver/${authState2.id}`).then((response)=> {
             setListaCurse(response.data)
         })
 
@@ -124,7 +124,7 @@ export default function Home() {
 
     const logout = () => {
         sessionStorage.removeItem("accessToken")
-        setAuthState({
+        setAuthState2({
             nume: "",
             id: 0,
             email: "",
@@ -135,7 +135,7 @@ export default function Home() {
 
     return(
         <div>
-            <h1 className="home--salut">Salut, {authState.nume}!</h1>
+            <h1 className="home--salut">Salut, {authState2.nume}!</h1>
             <button onClick={logout}>Logout</button>
             <div className="cautare--curse">
                 <Formik
