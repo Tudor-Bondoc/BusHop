@@ -5,7 +5,7 @@ export default function Scaun(props) {
 
     return(
         <div
-            className={`scaun ${props.ocupat ? 'occupied' : props.selectat ? 'selected' : 'liber'}`}
+            className={`scaun ${props.ocupat ? 'occupied' : props.selectat ? 'selected' : 'free'}`}
             onClick={() => {
                 if (!props.ocupat) {
                     props.onClick();
@@ -13,7 +13,6 @@ export default function Scaun(props) {
             }}
         >
             {props.numar_loc}
-            {props.ocupat}
         </div>
     )
 }
