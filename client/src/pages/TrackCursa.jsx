@@ -19,7 +19,6 @@ export default function TrackCursa() {
         socket.emit('join-cursa', { id });
 
         socket.on('new-coordonate', (data) => {
-            console.log('Coordonate noi primite:', data);
             setCoordonate(data);
         });
 
