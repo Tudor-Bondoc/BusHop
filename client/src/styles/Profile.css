@@ -43,27 +43,28 @@
     flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
-    background: rgba(154, 189, 224, 0.1);
-    backdrop-filter: blur(60px);
+    /*background: rgba(154, 189, 224, 0.1);
+    backdrop-filter: blur(60px);*/
+    color: #0061a5;
 }
 
 .profile--tab1 h1 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: white;
+    color: #0061a5;
   }
   
   .profile--tab1 h2,
   .profile--tab1 h3 {
     font-size: 18px;
     margin-bottom: 5px;
-    color: white;
+    color: #0061a5;
   }
   
   .profile--tab1 h3 {
     font-size: 16px;
     margin-top: 10px;
-    color: white;
+    color: #0061a5;
   }
 
 

@@ -134,9 +134,9 @@ export default function Home() {
     }
 
     return(
-        <div>
+        <div className="home--driver--container">
             <h1 className="home--salut">Salut, {authState2.nume}!</h1>
-            <button onClick={logout}>Logout</button>
+            <button onClick={logout} className="buton--logout">Logout</button>
             <div className="cautare--curse">
                 <Formik
                     initialValues={initialValues}
