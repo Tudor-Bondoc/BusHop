@@ -138,6 +138,7 @@ export default function Profile() {
                               oraplecare={cursa.ora_plecare}
                               orasosire={cursa.ora_sosire}
                               loc={rezervare.loc}
+                              pret={cursa.pret}
                           />
                       );
                   })}

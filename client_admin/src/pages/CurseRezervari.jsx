@@ -59,6 +59,7 @@ export default function CurseRezervari() {
                 orassosire = {traseuSelectat.oras_sosire}
                 autocar = {autocarSelectat.numar_inmatriculare}
                 status = {value.status}
+                pret = {value.pret}
             />
         )
     })
@@ -100,7 +101,7 @@ export default function CurseRezervari() {
     })
 
     const initialValues = {
-        oras_pornire: 'Cluj',
+        oras_pornire: 'Ramnicu Valcea',
         oras_sosire: 'Bucuresti',
         data_plecare: ''
     }

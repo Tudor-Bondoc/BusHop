@@ -108,7 +108,7 @@ export default function Home() {
     })
 
     const initialValues = {
-        oras_pornire: 'Cluj',
+        oras_pornire: 'Ramnicu Valcea',
         oras_sosire: 'Bucuresti',
         data_plecare: ''
     }

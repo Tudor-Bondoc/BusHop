@@ -102,6 +102,7 @@ export default function Curse() {
                 autocar = {autocarSelectat.numar_inmatriculare}
                 status = {value.status} 
                 sofer = {soferSelectat.nume}
+                pret = {value.pret}
             />
         )
     })
@@ -113,7 +114,7 @@ export default function Curse() {
     })
 
     const initialValues = {
-        oras_pornire: 'Cluj',
+        oras_pornire: 'Ramnicu Valcea',
         oras_sosire: 'Bucuresti',
         data_plecare: ''
     }

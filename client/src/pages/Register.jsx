@@ -1,7 +1,7 @@
 import React from "react";
 import * as Yup from 'yup'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios";
 import bus from '../../images/bus.png'
 import "../styles/Register.css"
@@ -22,9 +22,12 @@ export default function Register() {
         telefon: Yup.string().matches(/^\d{10}$/, 'Numărul de telefon trebuie să conțină exact 10 cifre').required()
     })
 
+    let navigate = useNavigate()
+
     function onSubmit(data) {
         axios.post("http://localhost:3002/pasageri", data).then(()=>{
             console.log("user added")
+            navigate("/login")
         })
     }
 

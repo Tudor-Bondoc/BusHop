@@ -74,6 +74,7 @@ export default function CursaPage() {
                     orassosire = {traseuSelectat.oras_sosire}
                     autocar = {autocarSelectat.numar_inmatriculare}
                     status = {value.status}
+                    pret = {value.pret}
                 />
             </div>
             <div className="cursa--page--right--side">

@@ -81,7 +81,8 @@ export default function EditCursa() {
                         ora_sosire: cursaData.ora_sosire,
                         TraseuID: cursaData.TraseuID,
                         AutocarID: cursaData.AutocarID,
-                        SoferID: cursaData.SoferID
+                        SoferID: cursaData.SoferID,
+                        pret: cursaData.pret
                     }}
                     validationSchema={validationSchema}
                     onSubmit={handleSubmit}
@@ -122,6 +123,9 @@ export default function EditCursa() {
                                 </option>
                             ))}
                         </Field>
+
+                        <label htmlFor="pret">Pret</label>
+                        <Field type="number" id="pret" name="pret" />
 
                         <button type="submit">Actualizează Cursa</button>
                     </Form>

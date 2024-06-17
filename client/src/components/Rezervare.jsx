@@ -21,6 +21,7 @@ export default function Rezervare(props){
         <div className="rezervare--container" onClick={()=>HandleCursaClick(props.status, props.idCursa)}>
             <h1 className="rezervare--titlu">Traseu: {props.orasplecare} - {props.orassosire}</h1>
             <h2 className="rezervare--detalii">Autocar: {props.autocar}</h2>
+            <h2 className="rezervare--detalii">Pret: {props.pret} lei</h2>
             <h3 className="rezervare--status">Status cursa: {props.status}</h3>
             <h3 className="rezervare--orar">Zi plecare: {ziPlecare}</h3>
             <h3 className="rezervare--orar">Ora plecare: {props.oraplecare}</h3>

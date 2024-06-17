@@ -117,6 +117,7 @@ export default function AddRezervare() {
                     <p className="loc--selectat">Ora sosire: {cursa.ora_sosire}</p>
                     <p className="loc--selectat">Nume pasager: {authState.nume}</p>
                     <p className="loc--selectat">Loc selectat: {numarScaunSelectat}</p>
+                    <p className="loc--selectat">Pret: {cursa.pret} lei</p>
                     <button type="submit" className="rez--button" onClick={onSubmit}>Adaugare rezervare</button>
                 </div>
 

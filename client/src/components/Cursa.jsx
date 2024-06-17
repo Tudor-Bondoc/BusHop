@@ -16,6 +16,7 @@ export default function Cursa(props) {
             <p className="cursa--ziplecare">Zi plecare: {ziPlecare}</p>
             <p className="cursa--ziplecare">Ora plecare: {props.oraplecare}</p>
             <p className="cursa--ziplecare">Ora sosire: {props.orasosire}</p>
+            <p className="cursa--ziplecare">Pret: {props.pret} lei</p>
         </div>
     )
 }

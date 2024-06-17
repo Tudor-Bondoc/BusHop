@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
         status: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        pret: {
+            type: DataTypes.TINYINT,
+            allowNull: false
         }
     }, {
         tableName: 'Curse'

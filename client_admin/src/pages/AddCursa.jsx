@@ -46,7 +46,8 @@ export default function AddCursa() {
                     ora_sosire: "",
                     TraseuID: 1,
                     AutocarID: 1,
-                    SoferID: 1
+                    SoferID: 1,
+                    pret: 0
                   }}
                   onSubmit={handleSubmit}
             >
@@ -86,6 +87,9 @@ export default function AddCursa() {
                         </option>
                     ))}
                     </Field>
+
+                    <label htmlFor="pret">Pret</label>
+                    <Field type="number" id="pret" name="pret" />
 
                     <button type="submit">
                         Adauga Cursa
