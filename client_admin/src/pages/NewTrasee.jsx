@@ -56,9 +56,8 @@ export default function NewTrasee() {
     function onSubmit(data) {
         axios.post("http://localhost:3002/trasee", data).then((response)=> {
             console.log("IT WORKED")
+            window.location.reload()
         })
-        //navigate("/trasee")
-        window.location.reload()
     }
 
     return(

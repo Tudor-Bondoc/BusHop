@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const { Rezervari, Curse } = require("../models")
+const { Rezervari, Curse, Trasee, Autocare } = require("../models")
 const {validateToken} = require('../middlewares/AuthMiddleware')
 const { sendConfirmationEmail } = require('../services/emailService')
 const { Op } = require("sequelize");
 
-//Afiseaza toate rezervarile specifice unei curse
+// Afiseaza toate rezervarile specifice unei curse
 router.get("/:id", async (req, res) => {
 
     const cursaId = req.params.id
@@ -20,7 +20,7 @@ router.get("/:id", async (req, res) => {
 
 })
 
-//Afiseaza toate rezervarile unui pasager dupa nume
+// Afiseaza toate rezervarile unui pasager dupa nume
 router.get("/byuser/:name", async (req, res) => {
 
     const { name } = req.params
@@ -35,7 +35,7 @@ router.get("/byuser/:name", async (req, res) => {
 
 })
 
-//Afiseaza toate rezervarile unui pasager dupa id
+// Afiseaza toate rezervarile unui pasager dupa id
 router.get("/byuserid/:id", async (req, res) => {
 
     const { id } = req.params
@@ -51,7 +51,7 @@ router.get("/byuserid/:id", async (req, res) => {
 })
 
 
-//Afiseaza rezervarile active ale unui pasager
+// Afiseaza rezervarile active ale unui pasager
 router.get("/byuserid/active/:id", async (req, res) => {
 
     const { id } = req.params;
@@ -98,7 +98,7 @@ router.get("/numar/:id", async (req, res) => {
     }
 });
 
-//Adauga o rezervare la o cursa
+// Adauga o rezervare la o cursa
 router.post("/:id", validateToken, async (req, res) => {
 
     let rezervare = req.body
@@ -112,12 +112,22 @@ router.post("/:id", validateToken, async (req, res) => {
 
     await Rezervari.create(rezervare)
 
+    const cursa = await Curse.findByPk(rezervare.CursaID)
+
+    const traseu = await Trasee.findByPk(cursa.TraseuID)
+
+    const autocar = await Autocare.findByPk(cursa.AutocarID)
+
     // Trimitere email de confirmare
     sendConfirmationEmail(req.pasager.email, {
         loc: rezervare.loc,
-        CursaID: rezervare.CursaID,
         nume: req.pasager.nume,
-        email: req.pasager.email
+        Plecare: traseu.oras_pornire,
+        Destinatie: traseu.oras_sosire,
+        Zi: cursa.zi_plecare,
+        Ora: cursa.ora_plecare,
+        Autocar: autocar.numar_inmatriculare,
+        Pret: cursa.pret
     });
 
     res.json(rezervare)

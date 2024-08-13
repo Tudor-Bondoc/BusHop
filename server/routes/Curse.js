@@ -4,13 +4,13 @@ const router = express.Router()
 const { Curse, Rezervari, sequelize } = require('../models');
 const { validateToken2 } = require("../middlewares/AuthMiddleware2")
 
-//Afiseaza toate cursele
+// Afiseaza toate cursele
 router.get("/", async (req, res) => {
     const toateCursele = await Curse.findAll()
     res.json(toateCursele)
 })
 
-//Afiseaza toate cursele care nu au inceput
+// Afiseaza toate cursele care nu au inceput
 router.get("/neinitiate", async (req, res) => {
     const toateCursele = await Curse.findAll({
         where: {
@@ -20,14 +20,14 @@ router.get("/neinitiate", async (req, res) => {
     res.json(toateCursele)
 })
 
-//Afiseaza o cursa dupa id
+// Afiseaza o cursa dupa id
 router.get("/:id", async (req, res) => {
     const { id } = req.params
     const cursa = await Curse.findByPk(id)
     res.json(cursa)
 })
 
-//Afiseaza cursele unui sofer
+// Afiseaza cursele unui sofer
 router.get("/bydriver/:id", async (req, res) => {
     const { id } = req.params
     const listaCurse = await Curse.findAll({
@@ -38,7 +38,7 @@ router.get("/bydriver/:id", async (req, res) => {
     res.json(listaCurse)
 })
 
-//Adauga o cursa
+// Adauga o cursa
 router.post("/", async (req, res) => {
 
     const cursa = req.body
@@ -51,29 +51,21 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
     const { id } = req.params;
     const updatedData = req.body;
-
     try {
-        // Caută cursa după id
         const cursa = await Curse.findByPk(id);
-
-        // Verifică dacă cursa există
         if (!cursa) {
-            return res.status(404).json({ message: "Cursa nu a fost găsită." });
+            return res.status(404).json({ message: "Cursa nu a fost gasita." });
         }
-
-        // Actualizează datele cursei
         await cursa.update(updatedData);
-
-        // Răspunde cu datele actualizate ale cursei
         res.json(cursa);
     } catch (error) {
         console.error("Eroare la actualizarea cursei:", error);
-        res.status(500).json({ message: "A apărut o eroare la actualizarea cursei." });
+        res.status(500).json({ message: "A aparut o eroare la actualizarea cursei." });
     }
 });
 
 
-//Sterge o cursa
+// Sterge o cursa
 router.delete("/:id", async (req, res) => {
     const { id } = req.params
     try {
@@ -81,8 +73,8 @@ router.delete("/:id", async (req, res) => {
         await cursa.destroy()
         res.status(204).end()
     } catch(error) {
-        console.error("Eroare la ștergerea cursei:", error)
-        res.status(500).json({ message: "A apărut o eroare la ștergerea cursei" })
+        console.error("Eroare la stergerea cursei:", error)
+        res.status(500).json({ message: "A aparut o eroare la stergerea cursei" })
     }
 })
 

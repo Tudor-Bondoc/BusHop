@@ -6,13 +6,13 @@ const { validateToken2 } = require("../middlewares/AuthMiddleware2")
 const { Soferi } = require('../models')
 const {sign} = require('jsonwebtoken')
 
-//Afiseaza toti soferii
+// Afiseaza toti soferii
 router.get("/", async (req, res) => {
     const totiSoferii = await Soferi.findAll()
     res.json(totiSoferii)
 })
 
-//Adauga un sofer
+// Adauga un sofer
 router.post("/", async(req, res) => {
     const { nume, email, parola } = req.body
     bcrypt.hash(parola, 10).then((hash)=>{
@@ -29,7 +29,7 @@ router.get("/auth", validateToken2, async(req, res) => {
     res.json(req.sofer)
 })
 
-//Login
+// Login
 router.post("/login", async(req, res) => {
 
     const { email, parola } = req.body

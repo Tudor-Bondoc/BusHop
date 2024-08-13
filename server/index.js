@@ -33,16 +33,17 @@ app.use("/soferi", soferiRouter)
 // Creare server HTTP
 const server = http.createServer(app);
 
-// Inițializare Socket.io
+// Initializare Socket.io
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'], // Origini permise
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Metode permise
+        origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'], 
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
     }
 });
 
 // Configurare Socket.io
 io.on('connection', (socket) => {
+
     console.log('Un client s-a conectat:', socket.id);
 
     socket.on('join-cursa', (data) => {
@@ -59,7 +60,6 @@ io.on('connection', (socket) => {
 
     socket.on('update-coordonate', async (data) => {
         const { id, latitudine, longitudine, timp } = data;
-        // Trimitem coordonatele către toți clienții conectați la această cursă
         io.to(`cursa-${id}`).emit('new-coordonate', { latitudine, longitudine, timp });
     });
 
@@ -72,6 +72,7 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('Un client s-a deconectat:', socket.id);
     });
+    
 });
 
 db.sequelize.sync().then(()=>{

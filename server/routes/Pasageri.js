@@ -4,10 +4,9 @@ const { Pasageri } = require("../models")
 const bcrypt = require("bcrypt")
 const {validateToken} = require("../middlewares/AuthMiddleware")
 const {sendContactEmail} = require("../services/emailService")
-
 const {sign} = require('jsonwebtoken')
 
-//Adauga un user
+// Adauga un user
 router.post("/", async(req, res) => {
     const { nume, email, parola, telefon } = req.body
     bcrypt.hash(parola, 10).then((hash)=>{
@@ -21,20 +20,19 @@ router.post("/", async(req, res) => {
     })
 })
 
+// Endpoint de verificare a autentificarii la montarea aplicatiilor React
 router.get("/auth", validateToken, async(req, res) => {
     res.json(req.pasager)
 })
 
+// Date despre un pasager
 router.get("/:id", async (req, res) => {
     const { id } = req.params;
     try {
-        // Găsește pasagerul în baza de date
         const pasagerr = await Pasageri.findByPk(id);
-        // Verifică dacă pasagerul a fost găsit
         if (!pasagerr) {
-            return res.status(404).json({ error: "Pasagerr not found" });
+            return res.status(404).json({ error: "Pasagerul nu a fost gasit" });
         }
-        // Returnează pasagerul găsit
         res.json(pasagerr);
     } catch (error) {
         console.error("Error retrieving pasager:", error);
@@ -42,6 +40,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+// Login
 router.post("/login", async(req, res) => {
 
     const { email, parola } = req.body

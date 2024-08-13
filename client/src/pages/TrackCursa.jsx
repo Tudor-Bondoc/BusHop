@@ -1,4 +1,3 @@
-// TrackCursa.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -11,12 +10,16 @@ import BusIcon from "../../images/bus.png"
 const socket = io('http://localhost:3002');
 
 export default function TrackCursa() {
+
     const { id } = useParams();
     const [coordonate, setCoordonate] = useState(null);
     const [statusCursa, setStatusCursa] = useState('in desfasurare');
 
     useEffect(() => {
+
         socket.emit('join-cursa', { id });
+
+        // Abonari si dezabonari
 
         socket.on('new-coordonate', (data) => {
             setCoordonate(data);
@@ -35,6 +38,7 @@ export default function TrackCursa() {
             socket.off('cursa-started');
             socket.off('cursa-stopped');
         };
+        
     }, [id]);
 
     const busIcon = new L.Icon({

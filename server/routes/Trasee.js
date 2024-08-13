@@ -2,13 +2,13 @@ const express = require('express')
 const router = express.Router()
 const { Trasee } = require("../models")
 
-//Afiseaza toate traseele
+// Afiseaza toate traseele
 router.get("/", async (req, res) => {
     const toateTraseele = await Trasee.findAll()
     res.json(toateTraseele)
 })
 
-//Adauga un traseu
+// Adauga un traseu
 router.post("/", async (req, res) => {
 
     const traseu = req.body
@@ -32,7 +32,7 @@ router.delete("/:id", async (req, res) => {
 
         await traseu.destroy();
 
-        res.status(204).end(); // Returnează un răspuns de succes cu codul 204 (No Content)
+        res.status(204).end(); // Succes (no content)
         
     } catch (error) {
         console.error("Eroare la ștergerea traseului:", error);
